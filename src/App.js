@@ -13,6 +13,9 @@ export default function App() {
 
 	//https://bareynol.github.io/mui-theme-creator/
 	const darkTheme = createTheme({
+		typography: {
+			htmlFontSize: 20,
+		},
 		palette: {
 			mode: 'dark',
 			primary: {

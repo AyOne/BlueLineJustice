@@ -5,7 +5,7 @@ import Checker from "./Checker.js";
 
 export default function Category({category}) {
 
-	console.log(category)
+	//console.log(category)
 
 	return (
 		<Grid container spacing={2}>
@@ -15,7 +15,7 @@ export default function Category({category}) {
 			<Grid item xs={12}>
 				<Divider />
 			</Grid>
-			{category.laws.map((law, index) => {console.log(law);return (
+			{category.laws.map((law, index) => {/*console.log(law);*/return (
 				<Grid item xs={12} key={index}>
 					<Checker law={law} offense={category.offense} />
 				</Grid>
