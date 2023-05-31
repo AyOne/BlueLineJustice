@@ -1,4 +1,4 @@
-import { Box, Typography, Grid, Divider, TextField, Select, MenuItem } from '@mui/material';
+import { Box, Typography, Grid, Divider, TextField, Select, MenuItem, Button, Dialog, DialogTitle, DialogContent, Paper } from '@mui/material';
 import offensesJSON from "../../assets/offenses.json";
 import Category from "./components/Category.js";
 import { useState } from "react";
@@ -12,12 +12,26 @@ export default function LawerCall(props) {
 		"_",
 	]
 
+	const city = [
+		"Los Santos",
+		"Sandy Shores",
+		"Paleto",
+		"Roxwood Country",
+	]
+
+
+	
+	const [formValues, setFormValues] = useState({})
+			
+
 
 	const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString("fr-FR").slice(0, -3))
-	console.log(currentTime)
+	const [recapOpen, setRecapOpen] = useState(false)
+	//console.log(currentTime)
 
 	const formJSON = [
 		{
+			enable:true,
 			name:"CallMatricule",
 			types:[
 				{
@@ -44,6 +58,7 @@ export default function LawerCall(props) {
 			]
 		},
 		{
+			enable:true,
 			name: "ArrestMatricule",
 			types:[
 				{
@@ -70,6 +85,7 @@ export default function LawerCall(props) {
 			]
 		},
 		{
+			enable:true,
 			name: "offenderName",
 			types:[
 				{
@@ -88,6 +104,7 @@ export default function LawerCall(props) {
 			]
 		},
 		{
+			enable:true,
 			name: "ArrestTime",
 			types:[
 				{
@@ -106,6 +123,26 @@ export default function LawerCall(props) {
 			]
 		},
 		{
+			enable:true,
+			name: "MirandaTime",
+			types:[
+				{
+					type:"text",
+					label:"Heure de lecture des droits miranda : ",
+					require:true,
+					size:7
+				},
+				{
+					type:"timeField",
+					label:"Time",
+					defaultValue:currentTime,
+					required:true,
+					size:5,
+				}
+			]
+		},
+		{
+			enable:true,
 			name: "DetentionTime",
 			types:[
 				{
@@ -124,6 +161,7 @@ export default function LawerCall(props) {
 			]
 		},
 		{
+			enable:true,
 			name: "Lawyer",
 			types:[
 				{
@@ -156,6 +194,75 @@ export default function LawerCall(props) {
 			maxWidth:"80%",
 			margin:"5% auto 5% auto"
 		}}>
+
+
+
+			
+			<Dialog open={recapOpen} onClose={() => setRecapOpen(false)} PaperProps={{style:{maxWidth:"calc(70% - 64px)", backgroundColor:'#FF000000', boxShadow: 'none', backgroundImage:'none'}}}>
+				<Grid container spacing={5}>
+					<Grid item xs={6}>
+						<Paper>
+							<Divider role="presentation">
+								<DialogTitle>Recapitulatif #1</DialogTitle>
+							</Divider>
+							<DialogContent>
+								<Typography variant="h6">Iamque lituis cladium concrepantibus internarum non celate ut antea turbidum saeviebat ingenium a veri consideratione detortum et nullo inpositorum vel conpositorum fidem sollemniter inquirente nec discernente a societate noxiorum insontes velut exturbatum e iudiciis fas omne discessit, et causarum legitima silente defensione carnifex rapinarum sequester et obductio capitum et bonorum ubique multatio versabatur per orientales provincias, quas recensere puto nunc oportunum absque Mesopotamia digesta, cum bella Parthica dicerentur, et Aegypto, quam necessario aliud reieci ad tempus.</Typography>
+							</DialogContent>
+						</Paper>
+					</Grid>
+					<Grid item xs={6}>
+						<Paper>
+							<Divider role="presentation">
+								<DialogTitle>Recapitulatif #1</DialogTitle>
+							</Divider>
+							<DialogContent>
+								<Typography variant="h6">Iamque lituis cladium concrepantibus internarum non celate ut antea turbidum saeviebat ingenium a veri consideratione detortum et nullo inpositorum vel conpositorum fidem sollemniter inquirente nec discernente a societate noxiorum insontes velut exturbatum e iudiciis fas omne discessit, et causarum legitima silente defensione carnifex rapinarum sequester et obductio capitum et bonorum ubique multatio versabatur per orientales provincias, quas recensere puto nunc oportunum absque Mesopotamia digesta, cum bella Parthica dicerentur, et Aegypto, quam necessario aliud reieci ad tempus.</Typography>
+							</DialogContent>
+						</Paper>
+					</Grid>
+					<Grid item xs={6}>
+						<Paper>
+							<Divider role="presentation">
+								<DialogTitle>Recapitulatif #1</DialogTitle>
+							</Divider>
+							<DialogContent>
+								<Typography variant="h6">Iamque lituis cladium concrepantibus internarum non celate ut antea turbidum saeviebat ingenium a veri consideratione detortum et nullo inpositorum vel conpositorum fidem sollemniter inquirente nec discernente a societate noxiorum insontes velut exturbatum e iudiciis fas omne discessit, et causarum legitima silente defensione carnifex rapinarum sequester et obductio capitum et bonorum ubique multatio versabatur per orientales provincias, quas recensere puto nunc oportunum absque Mesopotamia digesta, cum bella Parthica dicerentur, et Aegypto, quam necessario aliud reieci ad tempus.</Typography>
+							</DialogContent>
+						</Paper>
+					</Grid>
+					<Grid item xs={6}>
+						<Paper>
+							<Divider role="presentation">
+								<DialogTitle>Recapitulatif #1</DialogTitle>
+							</Divider>
+							<DialogContent>
+								<Typography variant="h6">Iamque lituis cladium concrepantibus internarum non celate ut antea turbidum saeviebat ingenium a veri consideratione detortum et nullo inpositorum vel conpositorum fidem sollemniter inquirente nec discernente a societate noxiorum insontes velut exturbatum e iudiciis fas omne discessit, et causarum legitima silente defensione carnifex rapinarum sequester et obductio capitum et bonorum ubique multatio versabatur per orientales provincias, quas recensere puto nunc oportunum absque Mesopotamia digesta, cum bella Parthica dicerentur, et Aegypto, quam necessario aliud reieci ad tempus.</Typography>
+							</DialogContent>
+						</Paper>
+					</Grid>
+				</Grid>
+			</Dialog>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			<Grid container spacing={2} alignItems="center">
 				<Grid item xs={12}>
 					<Divider role="presentation">
@@ -224,6 +331,13 @@ export default function LawerCall(props) {
 					}
 					</Grid>
 				</Grid>
+				<Grid item xs={12}>
+					<Divider />
+				</Grid>
+				<Grid item xs={12}>
+					<Button variant="text" color="primary" onClick={() => setRecapOpen(true)}>Envoyer</Button>
+				</Grid>
+
 			</Grid>
 		</Box>
 	)
