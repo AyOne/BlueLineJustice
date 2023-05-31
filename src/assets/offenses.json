@@ -1,0 +1,1944 @@
+{
+	"code_route": {
+		"name": "Code de la route",
+		"offense":false,
+		"laws":[
+			{
+				"law_number": "Article 114-1",
+				"name":"Conduite sans permis",
+				"description": "La conduite sans permis est le fait de conduire un véhicule illégalement sans avoir le permis adapté à celui-ci",
+				"penalty": {
+					"min_fine": 1000,
+					"max_fine": 2000,
+					"confiscation": ["vehicle"],
+					"criminal_record": true,
+					"presentation_permis_B":true
+				}
+			},
+			{
+				"law_number": "Article 115-1",
+				"name":"Conduite sous ivresse et/ou stupéfiant",
+				"description": "La conduite sous ivresse et/ou l'emprise de stupéfiant est le fait de conduire un véhicule avec un taux d'alcool supérieur à 0 et/ou sous stupéfiant",
+				"penalty": {
+					"min_fine": 3500,
+					"max_fine": 7500,
+					"cellule_degrisement": 15,
+					"cancellation_permis": true
+				}
+			},
+			{
+				"law_number": "Article 116-1",
+				"name":"Conduite dangereuse",
+				"description": "La conduite dangereuse consiste à conduire un moyen de transport de façon dangereuse pour autrui ou pour soi-même.",
+				"penalty": {
+					"min_fine": 4000,
+					"max_fine": 12000,
+					"vehicle_seizure": 24
+				}
+			},
+			{
+				"law_number": "Article 117-1",
+				"name":"Conduite hors voie de circulation",
+				"description": "La conduite hors voie de circulation consiste à rouler en dehors des routes et chemins prévues à cet effet",
+				"penalty": {
+					"min_fine": 1000,
+					"max_fine": 2000
+				}
+			},
+			{
+				"law_number": "Article 118-1",
+				"name":"Circulation à contresens",
+				"description": "La circulation à contresens consiste à conduire sur une voie/route dans le sens contraire de celui qui est imposé par la loi",
+				"penalty": {
+					"min_fine": 4000,
+					"max_fine": 8000,
+					"vehicle_seizure": 48
+				}
+			},
+			{
+				"law_number": "Article 119-1",
+				"name":"Défaut de papier officiel",
+				"description": "Le défaut de papier officiel (Permis B) consiste à ne pas avoir sur soi le papier du permis B",
+				"penalty": {
+					"min_fine": 1600,
+					"max_fine": 3200
+				}
+			},
+			{
+				"law_number": "Article 120-1",
+				"name":"Délit de fuite",
+				"description": "Le délit de fuite est le fait qu'un responsable d'un accident, qu'il soit Conduiteur d'un véhicule, cycliste ou piéton, quitte les lieux afin d'échapper à ses responsabilités.",
+				"penalty": {
+					"min_fine": 2000,
+					"max_fine": 4000,
+					"custody": 20,
+					"criminal_record": true,
+					"cancellation_permis": true
+				}
+			},
+			{
+				"law_number": "Article 121-1",
+				"name":"Demi-tour non autorisé",
+				"description": "Le demi-tour non autorisé est le fait de faire demi-tour sur une voie/route sans y être autorisé.",
+				"penalty": {
+					"min_fine": 250,
+					"max_fine": 500
+				}
+			},
+			{
+				"law_number": "Article 122-1",
+				"name":"Non-respect d'un feu rouge, stop, ligne continue ou feux tricolores",
+				"description": "Le non-respect d'un feu rouge, d'un stop, d'une ligne continue, des feux tricolores est le fait soit de ne pas s'arrêter ou de franchir ceux-ci.",
+				"penalty": {
+					"min_fine": 300,
+					"max_fine": 300
+				}
+			},
+			{
+				"law_number": "Article 123-1",
+				"name":"Stationnement gênant",
+				"description": "Le stationnement gênant c'est l'immobilisation d'un véhicule sur un emplacement inadéquat, qui gêne les autres usagers de la route ou du domaine public.",
+				"penalty": {
+					"min_fine": 2000,
+					"max_fine": 2000,
+					"vehicle_seizure":24
+				}
+			},
+			{
+				"law_number": "Article 124-1",
+				"name":"Stationnement interdit",
+				"description": "Le stationnement interdit c'est l'immobilisation d'un véhicule sur un emplacement interdit, qui gêne les services publics, notamment sur une ligne rouge continue.",
+				"penalty": {
+					"min_fine": 4000,
+					"max_fine": 4000,
+					"vehicle_seizure": 24
+				}
+			},
+			{
+				"law_number": "Article 125-1",
+				"name":"Utilisation abusive du klaxon",
+				"description": "L'utilisation abusive du klaxon constitue le fait d'user de son klaxon de manière inadéquate et de façon répétée.",
+				"penalty": {
+					"min_fine": 1500,
+					"max_fine": 3000
+				}
+			},
+			{
+				"law_number": "Article 126-1",
+				"name":"Utilisation d'un véhicule non homologué sur la voie publique",
+				"description": "L'utilisation d'un véhicule non homologué sur la voie publique consiste à avoir un véhicule qui ne présente pas les critères de sécurité suffisants et hors normes légal (défaut de plaque) sur la voie publique.",
+				"penalty": {
+					"min_fine": 10000,
+					"max_fine": 10000,
+					"vehicle_seizure":48
+				}
+			},
+			{
+				"law_number": "Article 127-1",
+				"name":"Utilisation d'un véhicule endommagé sur la voie publique",
+				"description": "L'utilisation d'un véhicule endommagé sur la voie publique, qui est donc dégradé que ça soit au niveau de la carrosserie ou bien au niveau du moteur, est interdite.",
+				"penalty": {
+					"min_fine": 500,
+					"max_fine": 500,
+					"vehicle_repair": true
+				}
+			},
+			{
+				"law_number": "Article 128-1",
+				"name":"Utilisation d'un klaxon ou sirène identité de service d'urgence",
+				"description": "L'usage d'un klaxon et/ou d'une sirène identité au Los Santos Police Department ou Emergency Medical Services est interdit.",
+				"penalty": {
+					"min_fine": 10000,
+					"max_fine": 20000,
+					"horn_removal": true
+				}
+			},
+			{
+				"law_number": "Article 129-1",
+				"name":"Vitesse excessive",
+				"description": "La vitesse excessive consiste à dépasser la limitation de kilomètre par heure autorisée sur la route où vous vous situez.",
+				"penalty": {
+					"min_fine": 1500,
+					"max_fine": 1500
+				}
+			}
+		]
+	},
+	"delit_mineur": {
+		"name": "Délits Mineur",
+		"offense":true,
+		"laws":[
+			{
+				"law_number": "Article 130-1",
+				"name":"Attentat à la pudeur",
+				"description": "L'attentat à la pudeur est une infraction pénale par laquelle un individu commet une voie de fait dans des circonstances indécentes contre la pudeur d'une autre personne",
+				"penalty": {
+					"min_fine": 3000,
+					"max_fine": 3000,
+					"custody": 15,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 131-1",
+				"name":"Atteinte à la vie privée",
+				"description": "L'atteinte à la vie privée est le fait pour une personne d'être victime d'une violation de son droit au respect de sa vie privée.",
+				"penalty": {
+					"min_fine": 2500,
+					"max_fine": 2500,
+					"custody": 10,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 132-1",
+				"name":"Défaut de papiers officiels (Identité)",
+				"description": "Le défaut de papiers officiels (Identité) est le fait de ne pas posséder sur soi le papier appelé communément “Carte d'identité”.",
+				"penalty": {
+					"min_fine": 1000,
+					"max_fine": 2000
+				}
+			},
+			{
+				"law_number": "Article 133-1",
+				"name":"Dissimulation de visage",
+				"description": "La dissimulation de visage est le fait de recouvrir intégralement ou partiellement son visage avec un foulard et/ou masque volontairement.",
+				"penalty": {
+					"min_fine": 1500,
+					"max_fine": 1500,
+					"search": true
+				}
+			},
+			{
+				"law_number": "Article 134-1",
+				"name":"Dégradation de biens publics",
+				"description": "La dégradation de biens publics est le fait de détruire, dégrader ou vandaliser volontairement un bien public.",
+				"penalty": {
+					"min_fine": 1500,
+					"max_fine": 1500
+				}
+			},
+			{
+				"law_number": "Article 135-1",
+				"name":"Dégradation de biens privés",
+				"description": "La dégradation de biens privés est le fait de détruire, dégrader ou vandaliser volontairement un bien privé.",
+				"penalty": {
+					"min_fine": 2000,
+					"max_fine": 2000
+				}
+			},
+			{
+				"law_number": "Article 136-1",
+				"name":"Entrave à la justice",
+				"description": "L'entrave à la justice est un délit d'interférence dans le travail de policiers, magistrats ou tout autre agent dépositaire de l'autorité publique.",
+				"penalty": {
+					"min_fine": 7500,
+					"max_fine": 10000,
+					"custody": 20,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 137-1",
+				"name":"Non respect d'injonction",
+				"description": "Une non respect d'injonction est un délit de non respect d'une ordonnance et/ou injonction émanant de policiers, magistrats ou tout autre agent dépositaire de l'autorité publique.",
+				"penalty": {
+					"min_fine": 7500,
+					"max_fine": 10000,
+					"custody": 30,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 138-1",
+				"name":"Ivresse sur la voie publique",
+				"description": "L'ivresse sur la voie publique est le fait d'être en état d'ébriété sur la voie publique.",
+				"penalty": {
+					"min_fine": 300,
+					"max_fine": 300,
+					"custody": 10
+				}
+			},
+			{
+				"law_number": "Article 139-1",
+				"name":"Intrusion dans une propriété privée",
+				"description": "L'intrusion dans une propriété privée consiste à s'y introduire sans y être invité.",
+				"penalty": {
+					"min_fine": 2000,
+					"max_fine": 4000
+				}
+			},
+			{
+				"law_number": "Article 140-1",
+				"name":"Licenciement abusif",
+				"description": "Le licenciement abusif est un licenciement qui n'est pas justifié par un motif légalement valable.",
+				"penalty": {
+					"min_fine": 17500,
+					"max_fine": 30000
+				}
+			},
+			{
+				"law_number": "Article 141-1",
+				"name":"Menace verbale",
+				"description": "Une menace verbale est l'expression verbale d'un projet nuisible par atteinte aux personnes ou aux biens.",
+				"penalty": {
+					"min_fine": 1500,
+					"max_fine": 3000
+				}
+			},
+			{
+				"law_number": "Article 141-2",
+				"name":"Outrage a la cour",
+				"description": "L'outrage à la cour est l'outrage par paroles, gestes ou menaces, par écrits ou images de toute nature non rendus publics ou par l'envoi d'objets quelconques adressé à un magistrat ou toute personne siégeant dans une formation juridictionnelle dans l'exercice de ses fonctions ou à l'occasion de cet exercice et tendant à porter atteinte à sa dignité ou au respect dû à la fonction dont il est investi.",
+				"penalty": {
+					"min_fine": 20000,
+					"max_fine": 20000
+				}
+			},
+			{
+				"law_number": "Article 142-1",
+				"name":"Intimidation envers un civil",
+				"description": "L'intimidation envers un civil est le l'action d'intimider, de faire peur à quelqu'un ou encore des pressions destinées à dissuader une personne de faire son devoir et / ou de faire valoir ses droits.",
+				"penalty": {
+					"min_fine": 1500,
+					"max_fine": 3000
+				}
+			},
+			{
+				"law_number": "Article 143-1",
+				"name":"Propos racistes, sexistes ou homophobes",
+				"description": "Les propos racistes, sexistes ou homophobes, sont des propos discriminatoire, rabaissant ou agressif énoncés à l'égard de personnes en raison de leur origine, sexe ou orientation sexuelle",
+				"penalty": {
+					"min_fine": 10000,
+					"max_fine": 10000,
+					"custody" : 20,
+					"psychological_meeting": true,
+					"criminal_record" : true
+				}
+			},
+			{
+				"law_number": "Article 144-1",
+				"name":"Refus d'obtempérer et / ou de coopérer",
+				"description": "Le refus d'obtempérer et / ou coopérer est un délit, se caractérisant par le fait qu'un individu choisisse de ne pas s'arrêter ou d'exécuter après qu'il en ait reçu l'ordre de la part d'agents appartenant aux forces de police.",
+				"penalty": {
+					"min_fine": 4000,
+					"max_fine": 8000,
+					"custody" : 15,
+					"criminal_record" : true
+				}
+			},
+			{
+				"law_number": "Article 145-1",
+				"name":"Surfacturation",
+				"description": "La surfacturation est une facturation excessive, l'envoi d'une facture dont le montant est supérieur à ce que vaut réellement la prestation.",
+				"penalty": {
+					"min_fine": 50,
+					"max_fine": 50,
+					"fine_percentage": true
+				}
+			},
+			{
+				"law_number": "Article 146-1",
+				"name":"Facturation illégale",
+				"description": "La facturation illégale ne correspond à aucune prestation de service ou livraison de biens.",
+				"penalty": {
+					"min_fine": 50,
+					"max_fine": 50,
+					"fine_percentage": true
+				}
+			},
+			{
+				"law_number": "Article 147-1",
+				"name":"Trouble à l'ordre public",
+				"description": "Le trouble à l'ordre public est l'atteinte significative à la paix publique. Certaines libertés peuvent faire l'objet de restrictions lorsqu'elles vont à l'encontre de l'ordre public.",
+				"penalty": {
+					"min_fine": 7500,
+					"max_fine": 15000,
+					"custody" : 15,
+					"criminal_record" : true
+				}
+			},
+			{
+				"law_number": "Article 148-1",
+				"name":"Utilisation abusive de la sonnette d'un hall d'accueil",
+				"description": "L'utilisation abusive de la sonnette d'un hall d'accueil est le fait d'abuser de celle-ci pour un individu dans un délai restreint.",
+				"penalty": {
+					"min_fine": 250,
+					"max_fine": 250
+				}
+			},
+			{
+				"law_number": "Article 149-1",
+				"name":"Utilisation abusive d'une centrale",
+				"description": "L'utilisation abusive d'une centrale est le fait d'abuser de celle-ci pour un individu avec plus de trois appels dans un délai restreint.",
+				"penalty": {
+					"min_fine": 2000,
+					"max_fine": 3000,
+					"custody" : 10
+				}
+			},
+			{
+				"law_number": "Article 150-1",
+				"name":"Utilisation d'un véhicule personnel sur un lieu de travail",
+				"description": "L'utilisation d'un véhicule personnel sur un lieu de travail est le fait de se rendre avec un véhicule non fourni par l'entreprise sur un lieu de travail.",
+				"penalty": {
+					"min_fine": 1500,
+					"max_fine": 1500
+				}
+			},
+			{
+				"law_number": "Article 151-1",
+				"name":"Tentative de vol",
+				"description": "La tentative de vol est la tentative de soustraction frauduleuse de la chose d'autrui.",
+				"penalty": {
+					"min_fine": 1000,
+					"max_fine": 1000,
+					"custody" : 10,
+					"criminal_record" : true
+				}
+			},
+			{
+				"law_number": "Article 151-2",
+				"name":"Vol",
+				"description": "Le vol est la soustraction frauduleuse de la chose d'autrui.",
+				"penalty": {
+					"min_fine": 1000,
+					"max_fine": 2000,
+					"custody" : 10,
+					"criminal_record" : true
+				}
+			},
+			{
+				"law_number": "Article 152-1",
+				"name":"Vandalisme sur un véhicule civil",
+				"description": "Le vandalisme sur un véhicule civil est la détérioration volontaire d'un véhicule appartenant à un civil.",
+				"penalty": {
+					"min_fine": 1000,
+					"max_fine": 2000,
+					"vehicle_seizure":true
+				}
+			}
+		]
+	},
+	"delit_moyen":{
+		"name": "Délits Moyen",
+		"offense":true,
+		"laws":[
+			{
+				"law_number": "Article 153-1",
+				"name":"Diffamation",
+				"description": "La diffamation est une allégation ou l'imputation d'un fait qui porte atteinte à l'honneur et à la considération d'une personne et / ou d'une entité.",
+				"penalty": {
+					"min_fine": 8000,
+					"max_fine": 16000,
+					"compensation": true
+				}
+			},
+			{
+				"law_number": "Article 154-1",
+				"name":"Abus de confiance",
+				"description": "L'abus de confiance est le fait pour une personne à qui a été remis de l'argent ou un bien, de détourner l'usage de ce bien à son profit ou pour un usage frauduleux.",
+				"penalty": {
+					"min_fine": 10000,
+					"max_fine": 20000,
+					"reimbursement": true,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 155-1",
+				"name":"Agression sur concitoyen avec les mains / une arme blanche",
+				"description": "L'agression sur concitoyen est une attaque non provoquée, injustifiée et brutale à l'aide de ses mains, arme blanche et / ou contondante contre un concitoyen.",
+				"penalty": {
+					"min_fine": 2500,
+					"max_fine": 5000,
+					"custody": 15,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 156-1",
+				"name":"Agression sur civil avec les mains / une arme blanche",
+				"description": "L'agression sur civil est une attaque non provoquée, injustifiée et brutale à l'aide de ses mains, arme blanche et / ou contondante contre un civil.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 15000,
+					"max_fine": 30000,
+					"community_service": 30,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 157-1",
+				"name":"Agression sur agent du service public avec les mains / une arme blanche",
+				"description": "L'agression sur agent du service public est une attaque non provoquée, injustifiée et brutale à l'aide de ses mains, arme blanche et / ou contondante contre un agent du service public.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 40000,
+					"max_fine": 80000,
+					"community_service": 50,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 158-1",
+				"name":"Agression sur magistrat avec les mains / une arme blanche",
+				"description": "L'agression sur magistrat est une attaque non provoquée, injustifiée et brutale à l'aide de ses mains, arme blanche et / ou contondante contre un magistrat.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 80000,
+					"max_fine": 120000,
+					"community_service": 70,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 159-1",
+				"name":"Braquage d'un ATM",
+				"description": "Le braquage d'un ATM est le fait de pirater à des fins malveillantes un Automated Teller Machine.",
+				"penalty": {
+					"min_fine": 3500,
+					"max_fine": 4500,
+					"custody": 15,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 160-1",
+				"name":"Braquage de la caisse d'une supérette",
+				"description": "Le braquage de la caisse d'une supérette est le fait de soustraire par la force ou la contrainte le contenu de la caisse.",
+				"penalty": {
+					"min_fine": 1500,
+					"max_fine": 1500,
+					"custody": 15,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 161-1",
+				"name":"Braquage du coffre d'une supérette",
+				"description": "Le braquage du coffre d'une supérette est le fait de soustraire par la force ou la contrainte le contenu du coffre.",
+				"penalty": {
+					"min_fine": 7500,
+					"max_fine": 15000,
+					"community_service": 20,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 163-1",
+				"name":"Cambriolage",
+				"description": "Un cambriolage est la violation de lieu privé, l'entrée dans un lieu sans autorisation, généralement par effraction, dans l'intention d'y commettre un vol.",
+				"penalty": {
+					"min_fine": 2500,
+					"max_fine": 3500,
+					"custody": 10,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 165-1",
+				"name":"Course illégale",
+				"description": "Une course illégale est une forme de compétition automobile ou motocycliste clandestine et non autorisée sur la voie publique.",
+				"penalty": {
+					"min_fine": 35000,
+					"max_fine": 70000,
+					"vehicle_seizure": 48,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 166-1",
+				"name":"Rodéo urbain",
+				"description": "Un rodéo urbain est un comportement illégal sur la voie publique réalisés sur des deux-roues ou quatre roues motorisés, au mépris des règles de prudence et du code de la route et qui compromet la sécurité des usagers et des riverains.",
+				"penalty": {
+					"min_fine": 12500,
+					"max_fine": 25000,
+					"vehicle_seizure": 48,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 167-1",
+				"name":"Destruction d'un véhicule civil",
+				"description": "La destruction d'un véhicule civil est la destruction volontaire d'un véhicule appartenant à un civil.",
+				"penalty": {
+					"min_fine": 15000,
+					"max_fine": 25000,
+					"community_service": 15,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 168-1",
+				"name":"Dégradation sur un véhicule d'État",
+				"description": "La dégradation sur un véhicule d'État est la détérioration volontaire d'un véhicule appartenant à l'État.",
+				"penalty": {
+					"min_fine": 10000,
+					"max_fine": 20000,
+					"community_service": 40,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 169-1",
+				"name":"Extorsion à l'aide des mains, armes blanches et/ou contondantes",
+				"description": "L'extorsion à l'aide des mains, armes blanches et/ou contondantes consiste à obtenir la remise de fonds, d'un bien quelconque, une signature, un engagement, une renonciation ou la révélation d'un secret, au moyen de violences, menaces ou contrainte.",
+				"penalty": {
+					"min_fine": 10000,
+					"max_fine": 20000,
+					"community_service": 20,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 170-1",
+				"name":"Extorsion à l'aide d'une arme à feu",
+				"description": "L'extorsion à l'aide d'une arme à feu consiste à obtenir la remise de fonds, d'un bien quelconque, une signature, un engagement, une renonciation ou la révélation d'un secret, au moyen de violences, menaces ou contrainte.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 30000,
+					"max_fine": 40000,
+					"community_service": 30,
+					"firearm_permit_revoked": true,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 171-1",
+				"name":"Escroquerie",
+				"description": "L'escroquerie consiste à obtenir un bien, un service ou de l'argent par une tromperie.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 20000,
+					"max_fine": 40000,
+					"compensation": true,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 172-1",
+				"name":"Franchissement d'une zone contrôlée par l'État",
+				"description": "Le franchissement d'une zone contrôlée par l'État est le fait de se rendre, s'introduire de manière illégale, sans y être invité, dans une zone sécurisée par l'État.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 30000,
+					"max_fine": 30000,
+					"community_service": 30,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 173-1",
+				"name":"Incitation à la haine",
+				"description": "L'incitation à la haine est le fait de pousser par ses actes des tiers à manifester de la haine à l'égard de certaines personnes, en raison de leur couleur de peau, de leur origine, de leur religion, de leur sexe, de leur orientation sexuelle, de leur identité de genre ou de leur handicap.",
+				"penalty": {
+					"min_fine": 6000,
+					"max_fine": 12000,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 174-1",
+				"name":"Mise en danger de la vie d'autrui",
+				"description": "La mise en danger de la vie d'autrui est le fait d'exposer autrui à un risque de mort ou de blessures importantes, mais sans accident et sans dommage.",
+				"penalty": {
+					"min_fine": 10000,
+					"max_fine": 20000,
+					"community_service": 15,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 175-1",
+				"name":"Menace de mort sur civil",
+				"description": "La menace de mort sur civil consiste à transmettre à une autre personne une menace de tuer un civil ou de lui causer des lésions corporelles.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 15000,
+					"max_fine": 15000,
+					"community_service": 15,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 176-1",
+				"name":"Menace de mort sur agent du service public",
+				"description": "La menace de mort sur agent du service public consiste à transmettre à une autre personne une menace de tuer un agent du service public ou de lui causer des lésions corporelles.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 30000,
+					"max_fine": 30000,
+					"community_service": 30,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 177-1",
+				"name":"Non assistance à une personne en danger",
+				"description": "La non assistance à une personne en danger est le fait de ne pas porter secours à quelqu'un qui est en détresse.",
+				"penalty": {
+					"min_fine": 7500,
+					"max_fine": 15000,
+					"psychological_appointment": true
+				}
+			},
+			{
+				"law_number": "Article 178-1",
+				"name":"Non déclaration d'impôt",
+				"description": "La non déclaration d'impôt consiste à ne pas déclarer ses impôts aux services compétents.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 100000,
+					"max_fine": 200000,
+					"declaration_obligation": true,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 179-1",
+				"name":"Tentative de corruption",
+				"description": "La tentative de corruption est le fait d'essayer de corrompre une personne pour qu'elle fasse ou ne fasse pas une chose, dans le cadre de son travail ou de son mandat, en échange d'un ou de plusieurs avantages.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 20000,
+					"max_fine": 40000,
+					"community_service": 40,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 179-2",
+				"name":"Corruption",
+				"prosecutor":true,
+				"description": "La corruption est la perversion ou le détournement d'un processus ou d'une interaction avec une ou plusieurs personnes dans le dessein, pour le corrupteur, d'obtenir des avantages ou des prérogatives particulières ou, pour le corrompu, d'obtenir une rétribution en échange de sa complaisance.",
+				"penalty": {
+					"min_fine": 40000,
+					"max_fine": 80000,
+					"criminal_record": true,
+					"community_service": 80
+				}
+			},
+			{
+				"law_number": "Article 180-1",
+				"name":"Usurpation d'identité",
+				"description": "L'usurpation d'identité consiste à utiliser, sans l'accord de la personne, des informations permettant de vous identifier.",
+				"penalty": {
+					"min_fine": 10000,
+					"max_fine": 20000,
+					"criminal_record": true,
+					"community_service": 25
+				}
+			},
+			{
+				"law_number": "Article 181-1",
+				"name":"Vol en entreprise",
+				"description": "Le vol en entreprise est la soustraction de la chose d'autrui, en l'occurrence de l'entreprise, sans l'accord de celle-ci.",
+				"penalty": {
+					"min_fine": 10000,
+					"max_fine": 10000,
+					"criminal_record": true,
+					"compensation": true,
+					"custody": 10
+				}
+			},
+			{
+				"law_number": "Article 182-1",
+				"name":"Vol d'un véhicule civil ou concitoyen",
+				"description": "Le vol d'un véhicule civil ou concitoyen est la soustraction du véhicule sans l'accord du propriétaire.",
+				"penalty": {
+					"min_fine": 2500,
+					"max_fine": 5000,
+					"criminal_record": true,
+					"custody": 15
+				}
+			},
+			{
+				"law_number": "Article 183-1",
+				"name":"Vol d'un véhicule tracé ou go fast",
+				"description": "Le vol d'un véhicule tracé ou go fast est la soustraction du véhicule sans l'accord du propriétaire, dans le but de le livrer.",
+				"penalty": {
+					"min_fine": 4500,
+					"max_fine": 9000,
+					"criminal_record": true,
+					"custody": 20
+				}
+			}
+		]
+	},
+	"delit_majeur":{
+		"name": "Délits Majeur",
+		"offense":true,
+		"laws":[
+			{
+				"law_number": "Article 184-1",
+				"name":"Agression sur civil  avec une arme a feu",
+				"description": "L'agression sur civil est une attaque non provoquée, injustifiée et brutale à l'aide d'une arme à feu contre un civil.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 25000,
+					"max_fine": 50000,
+					"community_service": 60,
+					"firearm_permit_revocation": true,
+					"confiscation": ["firearm","if_GSR_positive"],
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 185-1",
+				"name":"Agression sur agent du service public  avec une arme a feu",
+				"description": "L'agression sur agent du service public est une attaque non provoquée, injustifiée et brutale à l'aide d'une arme à feu contre un agent du service public.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 90000,
+					"max_fine": 150000,
+					"community_service": 80,
+					"firearm_permit_revocation": true,
+					"confiscation": ["firearm","if_GSR_positive"],
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 186-1",
+				"name":"Agression sur magistrat avec une arme a feu",
+				"description": "L'agression sur magistrat est une attaque non provoquée, injustifiée et brutale à l'aide d'une arme à feu contre un magistrat.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 100000,
+					"max_fine": 200000,
+					"community_service": 80,
+					"firearm_permit_revocation": true,
+					"confiscation": ["firearm","if_GSR_positive"],
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 187-1",
+				"name":"Braquage d'un fourgon Brink's missionné par autrui",
+				"description": "Le braquage d'un fourgon Brink's missionné par autrui, est le fait de soustraire par la force ou la contrainte le contenu du fourgon.",
+				"penalty": {
+					"min_fine": 5000,
+					"max_fine": 10000,
+					"community_service": 15,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 188-1",
+				"name":"Braquage d'un fourgon Brink's appartenant à l'entreprise Brink's",
+				"description": "Le braquage d'un fourgon Brink's appartenant à l'entreprise Brink's, est le fait de soustraire par la force ou la contrainte le contenu du fourgon.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 30000,
+					"max_fine": 45000,
+					"community_service": 30,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 189-1",
+				"name":"Braquage d'une bijouterie",
+				"description": "Le braquage d'une bijouterie est le fait de soustraire par la force ou la contrainte le contenu de la bijouterie.",
+				"penalty": {
+					"min_fine": 30000,
+					"max_fine": 35000,
+					"community_service": 65,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 190-1",
+				"name":"Braquage d'une banque Fleeca",
+				"description": "Le braquage d'une banque Fleeca est le fait de soustraire par la force ou la contrainte le contenu de la banque Fleeca",
+				"penalty": {
+					"min_fine": 50000,
+					"max_fine": 80000,
+					"community_service": 70,
+					"confiscation": ["weapon","used"],
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 191-1",
+				"name":"Blanchiment d'argent",
+				"description": "Le blanchiment d'argent est l'action de dissimuler la provenance d'argent sale, c'est-à-dire acquis de manière illégale, en faisant croire qu'il a été obtenu légalement.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 100000,
+					"max_fine": 200000,
+					"community_service": 90,
+					"confiscation": ["money"],
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 192-1",
+				"name":"Dissimulation de preuves",
+				"description": "La dissimulation de preuves est le fait de faire obstacle à la manifestation de la vérité en modifiant l'état des lieux d'un crime ou d'un délit, en altérant, falsifiant ou effaçant des traces ou indices, en apportant, déplaçant ou supprimant des objets quelconques, en détruisant, soustraisant, recelant ou altérant un document public ou privé ou un objet de nature à faciliter la découverte d'un crime ou d'un délit, la recherche de preuves ou la condamnation des coupables.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 10000,
+					"max_fine": 20000,
+					"community_service": 30,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 193-1",
+				"name":"Destruction de bracelet électronique",
+				"description": "La destruction du bracelet électronique est le fait de détruire volontairement le bracelet électronique.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 10000,
+					"max_fine": 20000,
+					"fine_increase": 0.5,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 194-1",
+				"name":"Evasion",
+				"description": "L'évasion est le fait pour un individu de s'échapper soit de la prison, soit d'un lieu où il est retenu par le Los Santos Police Department ( LSPD ).",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 30000,
+					"max_fine": 60000,
+					"community_service": 90,
+					"confiscation": ["money"],
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 195-1",
+				"name":"Usage de faux",
+				"description": "L'usage de faux est le fait d'exploiter un faux en toute connaissance de cause dans l'objectif d'avoir les mêmes effets qu'avec la pièce originale",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 10000,
+					"max_fine": 20000,
+					"community_service": 45,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 195-2",
+				"name":"Fraude fiscale",
+				"description": "La fraude fiscale consiste à échapper ou tenter d'échapper à l'impôt par tout moyen.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 200000,
+					"max_fine": 400000,
+					"community_service": 75,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 195-3",
+				"name":"Parjure",
+				"description": "Le parjure est le témoignage mensonger fait sous serment ( en jurant ou en affirmant solennellement de dire la vérité ) devant toute juridiction.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 25000,
+					"max_fine": 25000,
+					"community_service": 45,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 196-1",
+				"name":"Détournement de fonds",
+				"description": "Le détournement de fonds désigne le fait, par une personne, de détruire, détourner ou soustraire un acte ou un titre, ou des fonds, ou effets, pièces ou titres en tenant lieu, ou tout autre objet qui lui a été remis en raison de ses fonctions ou de sa mission.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 200000,
+					"max_fine": 400000,
+					"community_service": 75,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 197-1",
+				"name":"Incitation au suicide",
+				"description": "L'incitation au suicide est le fait de pousser par quelconques moyens, une personne à se suicider.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 15000,
+					"max_fine": 30000,
+					"community_service": 30,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 198-1",
+				"name":"Intrusion dans un domaine gouvernemental",
+				"description": "L'intrusion dans un domaine gouvernemental est le fait pour un individu de s'introduire illégalement dans un domaine appartenant au gouvernement sans autorisation.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 30000,
+					"max_fine": 60000,
+					"criminal_record": true,
+					"community_service": 30
+				}
+			},
+			{
+				"law_number": "Article 199-1",
+				"name":"Mise en danger de la vie d'un agent du service public",
+				"description": "La mise en danger de la vie d'un agent du service public est le fait d'exposer un agent du service public à un risque de mort ou de blessures importantes, mais sans accident et sans dommage.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 25000,
+					"max_fine": 50000,
+					"criminal_record": true,
+					"community_service": 75
+				}
+			},
+			{
+				"law_number": "Article 200-1",
+				"name":"Tentative d'évasion",
+				"description": "La tentative d'évasion est le fait pour un individu de tenter de s'échapper soit de la prison, soit d'un lieu où il est retenu par le Los Santos Police Department ( LSPD ).",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 15000,
+					"max_fine": 30000,
+					"criminal_record": true,
+					"community_service": 50
+				}
+			},
+			{
+				"law_number": "Article 201-1",
+				"name":"Usurpation de fonction d'un agent du service public",
+				"description": "L'usurpation de fonction d'un agent du service public est le fait de s'immiscer sans titre dans l'exercice d'une fonction publique, de provoquer une confusion dans l'esprit du public par l'exercice d'une activité ou l'usage de documents officiels.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 50000,
+					"max_fine": 100000,
+					"criminal_record": true,
+					"community_service": 40
+				}
+			},
+			{
+				"law_number": "Article 201-2",
+				"name":"Usurpation de signes réservés à la fonction publique",
+				"description": "L'usurpation de signes réservés à la fonction publique est le fait, par toute personne, publiquement et sans droit de porter un costume, un uniforme ou une décoration réglementés par l'autorité publique. Également d'utiliser un véhicule dont les signes extérieurs sont identiques à ceux utilisés par les fonctionnaires du Los Santos Police Departement.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 50000,
+					"max_fine": 100000,
+					"criminal_record": true,
+					"community_service": 40
+				}
+			},
+			{
+				"law_number": "Article 202-1",
+				"name":"Vol d'un véhicule d'État",
+				"description": "Le vol d'un véhicule d'État est la soustraction du véhicule sans l'accord du propriétaire.",
+				"penalty": {
+					"min_fine": 20000,
+					"max_fine": 40000,
+					"criminal_record": true,
+					"community_service": 15
+				}
+			} 
+		]
+	},
+	"crime":{
+		"name": "Crime",
+		"offense":true,
+		"laws":[
+			{
+				"law_number": "Article 203-1",
+				"name":"Acte terroriste",
+				"description": "L'acte terroriste est un acte se rattachant à une entreprise individuelle ou collective ayant pour but de troubler gravement l'ordre public par l'intimidation ou la terreur.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 3000000,
+					"max_fine": 6000000,
+					"criminal_record": true,
+					"imprisonment":"life"
+				}
+			},
+			{
+				"law_number": "Article 204-1",
+				"name":"Association de malfaiteurs",
+				"description": "L'association de malfaiteurs est un groupement d'individus formé en vue de la préparation d'un ou plusieurs crimes ou délits.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 35000,
+					"max_fine": 55000,
+					"criminal_record": true,
+					"community_service": 65
+				}
+			},
+			{
+				"law_number": "Article 205-1",
+				"name":"Braquage d'une banque Pacific",
+				"description": "Le braquage d'une banque Pacific est le fait de soustraire par la force ou la contrainte le contenu de la banque Pacific.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 200000,
+					"max_fine": 400000,
+					"criminal_record": true,
+					"community_service": 180
+				}
+			},
+			{
+				"law_number": "Article 207-1",
+				"name":"Prise d'otage sur agent du service public",
+				"description": "La prise d'otage sur agent du service public est une action visant à retenir un ou des agents du service public contre leur volonté afin, le plus souvent, de revendiquer quelque chose.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 60000,
+					"max_fine": 100000,
+					"criminal_record": true,
+					"community_service": 75
+				}
+			},
+			{
+				"law_number": "Article 208-1",
+				"name":"Kidnapping sur agent du service public",
+				"description": "Le kidnapping sur agent du service public est une action visant à enlever un ou des agents du service public afin, le plus souvent, de demander une rançon.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 60000,
+					"max_fine": 100000,
+					"criminal_record": true,
+					"community_service": 300
+				}
+			},
+			{
+				"law_number": "Article 209-1",
+				"name":"Enlèvement sur agent du service public",
+				"description": "L'enlèvement sur agent du service public est une action visant à enlever un ou des agents du service public contre leur volonté, en les privant de leur liberté d'aller et de venir.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 60000,
+					"max_fine": 100000,
+					"criminal_record": true,
+					"community_service": 300
+				}
+			},
+			{
+				"law_number": "Article 210-1",
+				"name":"Prise d'otage sur magistrat",
+				"description": "La prise d'otage sur magistrat est une action visant à retenir un ou des magistrats contre leur volonté afin, le plus souvent, de revendiquer quelque chose.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 100000,
+					"max_fine": 200000,
+					"criminal_record": true,
+					"community_service": 150
+				}
+			},
+			{
+				"law_number": "Article 211-1",
+				"name":"Kidnapping sur magistrat",
+				"description": "Le kidnapping sur magistrat est une action visant à enlever un ou des magistrats afin, le plus souvent, de demander une rançon.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 100000,
+					"max_fine": 200000,
+					"criminal_record": true,
+					"community_service": 150
+				}
+			},
+			{
+				"law_number": "Article 212-1",
+				"name":"Enlèvement sur magistrat",
+				"description": "L'enlèvement sur magistrat est une action visant à enlever un ou des magistrats contre leur volonté, en les privant de leur liberté d'aller et de venir.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 100000,
+					"max_fine": 200000,
+					"criminal_record": true,
+					"community_service": 150
+				}
+			},
+			{
+				"law_number": "Article 213-1",
+				"name":"Homicide sur civil",
+				"description": "L'homicide sur civil est le fait de donner intentionnellement la mort à un civil.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 300000,
+					"max_fine": 600000,
+					"criminal_record": true,
+					"community_service": 500,
+					"firearm_permit_revoked": true
+				}
+			},
+			{
+				"law_number": "Article 214-1",
+				"name":"Homicide sur agent du service public",
+				"description": "L'homicide sur agent du service public est le fait de donner intentionnellement la mort à un agent du service public.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 190000,
+					"max_fine": 380000,
+					"criminal_record": true,
+					"community_service": 500,
+					"firearm_permit_revoked": true
+				}
+			},
+			{
+				"law_number": "Article 215-1",
+				"name":"Homicide sur magistrat",
+				"description": "L'homicide sur magistrat est le fait de donner intentionnellement la mort à un magistrat.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 450000,
+					"max_fine": 900000,
+					"criminal_record": true,
+					"community_service": 500,
+					"gun_license_revocation": true,
+					"confiscation": ["gun"]
+				}
+			},
+			{
+				"law_number": "Article 216-1",
+				"name":"Prise d'otage sur civil",
+				"description": "La prise d'otage sur civil est une action visant à retenir un ou des civils contre leur volonté afin, le plus souvent, de revendiquer quelque chose.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 45000,
+					"max_fine": 90000,
+					"criminal_record": true,
+					"community_service": 50
+				}
+			},
+			{
+				"law_number": "Article 217-1",
+				"name":"Kidnapping sur civil",
+				"description": "Le kidnapping sur civil est une action visant à enlever un ou des civils afin, le plus souvent, de demander une rançon.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 45000,
+					"max_fine": 90000,
+					"criminal_record": true,
+					"community_service": 50
+				}
+			},
+			{
+				"law_number": "Article 218-1",
+				"name":"Enlèvement sur civil",
+				"description": "L'enlèvement sur civil est une action visant à enlever un ou des civils contre leur volonté, en les privant de leur liberté d'aller et de venir.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 45000,
+					"max_fine": 90000,
+					"criminal_record": true,
+					"community_service": 50
+				}
+			},
+			{
+				"law_number": "Article 219-1",
+				"name":"Tentative de meurtre sur civil",
+				"description": "La tentative de meurtre sur civil est constituée dès lors que manifestée par un commencement d'exécution, elle n'a été suspendue ou n'a manqué son effet qu'en raison de circonstances indépendantes de la volonté de son auteur.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 75000,
+					"max_fine": 150000,
+					"criminal_record": true,
+					"community_service": 250,
+					"gun_license_revocation": true,
+					"confiscation": ["gun"]
+				}
+			},
+			{
+				"law_number": "Article 219-2",
+				"name":"Tentative de meurtre sur agent du service public",
+				"description": "La tentative de meurtre sur agent du service public est constituée dès lors que manifestée par un commencement d'exécution, elle n'a été suspendue ou n'a manqué son effet qu'en raison de circonstances indépendantes de la volonté de son auteur.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 100000,
+					"max_fine": 200000,
+					"criminal_record": true,
+					"community_service": 300,
+					"weapon_permit_removal": true
+				}
+			},
+			{
+				"law_number": "Article 220-1",
+				"name":"Tentative de meurtre sur magistrat",
+				"description": "La tentative de meurtre sur magistrat est constituée dès lors que manifestée par un commencement d'exécution, elle n'a été suspendue ou n'a manqué son effet qu'en raison de circonstances indépendantes de la volonté de son auteur.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 100000,
+					"max_fine": 200000,
+					"criminal_record": true,
+					"community_service": 300,
+					"weapon_permit_removal": true
+				}
+			},
+			{
+				"law_number": "Article 221-1",
+				"name":"Séquestration",
+				"description": "La séquestration est l'acte de retenir une personne, enfermée contre son gré en dehors de toute autorité légale en usant de violence, de ruse ou de la menace.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 50000,
+					"max_fine": 100000,
+					"criminal_record": true,
+					"community_service": 100,
+					"weapon_permit_removal": true
+				}
+			}
+		]
+	},
+	"armes":{
+		"name": "Armes",
+		"offense":false,
+		"laws":[
+			{
+				"law_number": "Article 248-1",
+				"name":"Défaut de papier officiel ( PPA )",
+				"description": "Le défaut de papier officiel ( PPA ) consiste à ne pas avoir sur soi le papier du permis de port d'armes.",
+				"penalty": {
+					"min_fine": 4500,
+					"max_fine": 4500
+				}
+			},
+			{
+				"law_number": "Article 249-1",
+				"name":"Détention d'armes sans permis de port d'armes",
+				"description": "La détention d'une ou de plusieurs armes sans permis de port d'armes est interdite.",
+				"penalty": {
+					"min_fine": 15000,
+					"max_fine": 15000,
+					"criminal_record": true,
+					"confiscation": ["weapon"]
+				}
+			},
+			{
+				"law_number": "Article 250-1",
+				"name":"Intimidation à l'arme blanche",
+				"description": "L'intimidation à l'arme blanche est l'action d'intimider, de faire peur à quelqu'un ou encore des pressions destinées à dissuader une personne de faire son devoir et / ou de faire valoir ses droits à l'aide d'une arme blanche.",
+				"penalty": {
+					"min_fine": 8000,
+					"max_fine": 8000,
+					"criminal_record": true,
+					"confiscation": ["weapon"]
+				}
+			},
+			{
+				"law_number": "Article 250-2",
+				"name":"Intimidation à l'arme à feu",
+				"description": "L'intimidation à l'arme à feu est l'action d'intimider, de faire peur à quelqu'un ou encore des pressions destinées à dissuader une personne de faire son devoir et / ou de faire valoir ses droits à l'aide d'une arme à feu.",
+				"penalty": {
+					"min_fine": 12000,
+					"max_fine": 12000,
+					"criminal_record": true,
+					"confiscation": ["weapon"]
+				}
+			},
+			{
+				"law_number": "Article 251-1",
+				"name":"Utilisation d'une arme blanche sur la voie publique",
+				"description": "L'utilisation d'une arme blanche sur la voie publique est le fait d'utiliser une arme blanche sur la voie publique.",
+				"penalty": {
+					"min_fine": 15000,
+					"max_fine": 15000,
+					"criminal_record": true,
+					"confiscation": ["weapon"]
+				}
+			},
+			{
+				"law_number": "Article 252-1",
+				"name":"Utilisation d'une arme à feu sur la voie publique",
+				"description": "L'utilisation d'une arme à feu sur la voie publique est le fait d'utiliser une arme à feu sur la voie publique.",
+				"penalty": {
+					"min_fine": 20000,
+					"max_fine": 20000,
+					"criminal_record": true,
+					"confiscation": ["weapon"],
+					"revocation_firearm_permit": true,
+					"community_service": 25
+				}
+			},
+			{
+				"law_number": "Article 253-1",
+				"name":"Possession d'un pistolet à impulsion électrique",
+				"description": "La possession d'un pistolet à impulsion électrique, plus communément appelé taser, alors que celui-ci doit être restitué au Los Santos Police Department et / ou nécessitant une convocation pour cette restitution, est interdite.",
+				"penalty": {
+					"min_fine": 15000,
+					"max_fine": 30000,
+					"criminal_record": true,
+					"confiscation": ["weapon"],
+					"community_service": 20
+				}
+			},
+			{
+				"law_number": "Article 254-1",
+				"name":"Port d'armes blanches illégales",
+				"description": "Le port d'armes blanches illégales, qui ne s'achètent pas à l'ammu-nation, est interdit.",
+				"penalty": {
+					"min_fine": 17500,
+					"max_fine": 17500,
+					"criminal_record": true,
+					"confiscation": ["weapon"],
+					"community_service": 25
+				}
+			},
+			{
+				"law_number": "Article 255-1",
+				"name":"Port d'armes illégales de petit calibre",
+				"description": "Le port d'armes illégales de petit calibre, qui ne s'achètent pas à l'ammu-nation, est interdit.",
+				"penalty": {
+					"min_fine": 45000,
+					"max_fine": 45000,
+					"criminal_record": true,
+					"confiscation": ["weapon"],
+					"community_service": 35
+				}
+			},
+			{
+				"law_number": "Article 256-1",
+				"name":"Port d'armes illégales de moyen calibre",
+				"description": "Le port d'armes illégales de moyen calibre, qui ne s'achètent pas à l'ammu-nation, est interdit.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 80000,
+					"max_fine": 80000,
+					"criminal_record": true,
+					"confiscation": ["weapon"],
+					"community_service": 55
+				}
+			},
+			{
+				"law_number": "Article 257-1",
+				"name":"Port d'armes illégales de gros calibre",
+				"description": "Le port d'armes illégales de gros calibre, qui ne s'achètent pas à l'ammu-nation, est interdit.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 145000,
+					"max_fine": 145000,
+					"criminal_record": true,
+					"confiscation": ["weapon"],
+					"community_service": 100
+				}
+			},
+			{
+				"law_number": "Article 258-1",
+				"name":"Port d'armes blanches illégales réservées à l'État",
+				"description": "Le port d'armes blanches illégales réservées à l'État, qui appartient donc à l'État, est interdit.",
+				"penalty": {
+					"min_fine": 15000,
+					"max_fine": 15000,
+					"criminal_record": true,
+					"confiscation": ["weapon"],
+					"community_service": 50
+				}
+			},
+			{
+				"law_number": "Article 259-1",
+				"name":"Port d'armes illégales de petit calibre réservées à l'État",
+				"description": "Le port d'armes illégales de petit calibre réservées à l'État, qui appartient donc à l'État, est interdit.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 70000,
+					"max_fine": 70000,
+					"criminal_record": true,
+					"confiscation": ["weapon"],
+					"community_service": 70
+				}
+			},
+			{
+				"law_number": "Article 260-1",
+				"name":"Port d'armes illégales de moyen calibre réservées à l'État",
+				"description": "Le port d'armes illégales de moyen calibre réservées à l'État, qui appartient donc à l'État, est interdit.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 150000,
+					"max_fine": 150000,
+					"criminal_record": true,
+					"confiscation": ["weapon"],
+					"loss_of_gun_permit": true,
+					"community_service": 125,
+					"search_warrant_issued": true
+				}
+			},
+			{
+				"law_number": "Article 261-1",
+				"name":"Port d'armes illégales de gros calibre réservées à l'État",
+				"description": "Le port d'armes illégales de gros calibre réservées à l'État, qui appartient donc à l'État, est interdit.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 200000,
+					"max_fine": 200000,
+					"criminal_record": true,
+					"confiscation": ["weapon"],
+					"loss_of_gun_permit": true,
+					"community_service": 200,
+					"search_warrant_issued": true
+				}
+			},
+			{
+				"law_number": "Article 262-1",
+				"name":"Vente d'armes blanches",
+				"description": "La vente d'armes blanches consiste à approvisionner en armes blanches une entité ou une personne en violant les réglementations nationales sur les ventes d'armes.",
+				"penalty": {
+					"min_fine": 35000,
+					"max_fine": 70000,
+					"criminal_record": true,
+					"confiscation": ["weapon"],
+					"community_service": 50
+				}
+			},
+			{
+				"law_number": "Article 263-1",
+				"name":"Vente d'armes illégales de petit calibre",
+				"description": "La vente d'armes illégales de petit calibre consiste à approvisionner en armes de petit calibre une entité ou une personne en violant les réglementations nationales sur les ventes d'armes.",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 85000,
+					"max_fine": 170000,
+					"criminal_record": true,
+					"confiscation": ["weapon"],
+					"community_service": 70
+				}
+			},
+			{
+				"law_number": "Article 264-1",
+				"name": "Vente d'armes illégales de moyen calibre",
+				"description": "La vente d'armes illégales de moyen calibre consiste à approvisionner en armes de moyen calibre une entité ou une personne en violant les réglementations nationales sur les ventes d'armes",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 175000,
+					"max_fine": 350000,
+					"seizure_of_arms": true,
+					"community_service": 100,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number": "Article 265-1",
+				"name": "Vente d'armes illégales de gros calibre",
+				"description": "La vente d'armes illégales de gros calibre consiste à approvisionner en armes de gros calibre une entité ou une personne en violant les réglementations nationales sur les ventes d'armes",
+				"prosecutor":true,
+				"penalty": {
+					"min_fine": 350000,
+					"max_fine": 700000,
+					"seizure_of_arms": true,
+					"community_service": 150,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number":"Article 266-1",
+				"name": "Exhibition d'armes",
+				"description": "L'exhibition d'armes représente l'action de présenter une arme blanche ou à feu sur la voie publique.",
+				"penalty": {
+					"min_fine": 12000,
+					"max_fine": 12000,
+					"confiscation": ["weapon"],
+					"community_service": 15,
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number":"Article 267-1",
+				"name": "Exhibition de gilet par balle esthétique",
+				"description": "L'exhibition de gilet par balle esthétique représente l'action de présenter un gilet par balle esthétique achetable en magasin sur la voie publique.",
+				"penalty": {
+					"min_fine": 2500,
+					"max_fine": 5000,
+					"confiscation": ["bulletproof vest"],
+					"criminal_record": true
+				}
+			},
+			{
+				"law_number":"Article 268-1",
+				"name": "Exhibition de gilet par balle",
+				"description": "L'exhibition de gilet par balle représente l'action de présenter un gilet par balle sur la voie publique.",
+				"penalty": {
+					"min_fine": 15000,
+					"max_fine": 15000,
+					"confiscation": ["bulletproof vest"],
+					"community_service": 25,
+					"criminal_record": true
+				}
+			}
+		]
+	},
+	"objets_illegaux":{
+		"name": "Objets illégaux",
+		"offense":false,
+		"laws":[
+			{
+				"law_number": "Article 222-1",
+				"name":"Possession d'un ATM cracker",
+				"description": "La possession d'un ATM cracker est interdite, celui-ci à pour but de pirater un Automated Teller Machine.",
+				"quantity":true,
+				"penalty": {
+					"min_fine": 1000,
+					"max_fine": 2000,
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			},
+			{
+				"law_number": "Article 223-1",
+				"name":"Possession de bijoux volés",
+				"description": "La possession de bijoux volés, au-delà de dix unités, est interdite.",
+				"quantity":true,
+				"penalty": {
+					"min_fine": 150,
+					"max_fine": 300,
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			},
+			{
+				"law_number": "Article 224-1",
+				"name":"Possession d'une bombe thermite",
+				"description": "La possession d'une bombe thermite est interdite.",
+				"quantity":true,
+				"penalty": {
+					"min_fine": 1000,
+					"max_fine": 2000,
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			},
+			{
+				"law_number": "Article 226-1",
+				"name":"Possession d'une carte d'accès",
+				"description": "La possession d'une carte d'accès, donnant accès à une porte de banque, est interdite.",
+				"quantity":true,
+				"penalty": {
+					"min_fine": 2500,
+					"max_fine": 5000,
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			},
+			{
+				"law_number": "Article 227-1",
+				"name":"Possession de kit de crochetage",
+				"description": "La possession de kit de crochetage, permettant de crocheter une serrure, est interdite.",
+				"quantity":true,
+				"penalty": {
+					"min_fine": 350,
+					"max_fine": 700,
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			},
+			{
+				"law_number": "Article 228-1",
+				"name":"Possession de menottes",
+				"description": "La possession de menottes, appartenant au Los Santos Police Department, est interdite.",
+				"quantity":true,
+				"penalty": {
+					"min_fine": 2500,
+					"max_fine": 5000,
+					"criminal_record": true,
+					"custody": 15,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			},
+			{
+				"law_number": "Article 229-1",
+				"name":"Possession de sac de billets",
+				"description": "La possession de sac de billets, provenant de la brink's, est interdite.",
+				"quantity":true,
+				"penalty": {
+					"min_fine": 500,
+					"max_fine": 1000,
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			},
+			{
+				"law_number": "Article 230-1",
+				"name":"Possession de silencieux",
+				"description": "La possession de silencieux, pour une arme, est interdite.",
+				"quantity":true,
+				"penalty": {
+					"min_fine": 5000,
+					"max_fine": 10000,
+					"criminal_record": true,
+					"custody": 15,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			},
+			{
+				"law_number": "Article 231-1",
+				"name":"Possession de gilet lourd",
+				"description": "La possession de gilet lourd, qui est un gilet pare-balles contenant des plaques de kevlar lourd, est interdite.",
+				"quantity":true,
+				"penalty": {
+					"min_fine": 5000,
+					"max_fine": 10000,
+					"criminal_record": true,
+					"custody": 15,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			},
+			{
+				"law_number": "Article 232-1",
+				"name":"Possession de viande d'orque",
+				"description": "La possession de viande d'orque, provenant de la dislocation d'un orque, est interdite.",
+				"quantity":true,
+				"penalty": {
+					"min_fine": 700,
+					"max_fine": 1400,
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			},
+			{
+				"law_number": "Article 233-1",
+				"name":"Possession de viande de dauphin",
+				"description": "La possession de viande de dauphin, provenant de la dislocation de dauphin, est interdite.",
+				"quantity":true,
+				"penalty": {
+					"min_fine": 600,
+					"max_fine": 1200,
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			},
+			{
+				"law_number": "Article 234-1",
+				"name":"Possession de viande de requin",
+				"description": "La possession de viande de requin, provenant de la dislocation de requin, est interdite.",
+				"quantity":true,
+				"penalty": {
+					"min_fine": 500,
+					"max_fine": 1000,
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			}
+		]
+	},
+	"drogues":{
+		"name": "Drogues",
+		"offense":false,
+		"laws":[
+			{
+				"law_number": "Article 235-1",
+				"name":"Possession de fentanyl",
+				"description": "La possession de fentanyl, un analgésique opioïde très puissant qui sert notamment à la fabrication de drogue type cocaïne, est interdite.",
+				"quantity":true,
+				"penalty": {
+					"q": [
+						[1, 50, 25],
+						[51, 100, 50],
+						[101, 999999, 75]
+					],
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			},
+			{
+				"law_number": "Article 236-1",
+				"name":"Possession de fertilisant",
+				"description": "La possession de fertilisant, un produit destiné à assurer ou à améliorer la nutrition de plan de weed, est interdite.",
+				"quantity":true,
+				"penalty": {
+					"q": [
+						[1, 50, 25],
+						[51, 100, 50],
+						[101, 999999, 75]
+					],
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			},
+			{
+				"law_number": "Article 237-1",
+				"name":"Possession de méthylamine",
+				"description": "La possession de méthylamine, un produit liquide avec une odeur de poisson avarié liquéfié à -6°C qui sert notamment à la fabrication de drogue type méthamphétamine, est interdite.",
+				"quantity":true,
+				"penalty": {
+					"q": [
+						[1, 50, 25],
+						[51, 100, 50],
+						[101, 999999, 75]
+					],
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			},
+			{
+				"law_number": "Article 238-1",
+				"name":"Possession de pâte à coca",
+				"description": "La possession de pâte à coca, extrait des feuilles de l'arbuste qui sert notamment à la fabrication de drogue type cocaïne, est interdite.",
+				"quantity":true,
+				"penalty": {
+					"q": [
+						[1, 50, 25],
+						[51, 100, 50],
+						[101, 999999, 75]
+					],
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			},
+			{
+				"law_number": "Article 239-1",
+				"name":"Possession de phenylacetone",
+				"description": "La possession de phenylacetone, un produit liquide huileux jaune soluble dans les solvants organiques qui sert notamment à la fabrication de drogue type méthamphétamine, est interdite.",
+				"quantity":true,
+				"penalty": {
+					"q": [
+						[1, 50, 25],
+						[51, 100, 50],
+						[101, 999999, 75]
+					],
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			},
+			{
+				"law_number": "Article 240-1",
+				"name":"Possession de weed",
+				"description": "La possession de weed, provenant de la plante de cannabis, est interdite.",
+				"quantity":true,
+				"penalty": {
+					"q": [
+						[1, 50, 20],
+						[51, 100, 25],
+						[101, 999999, 30]
+					],
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			},
+			{
+				"law_number": "Article 241-1",
+				"name":"Possession de graines de weed femelle",
+				"description": "La possession de graines de weed femelle, hors métier BestBuddz, est interdite.",
+				"quantity":true,
+				"penalty": {
+					"q": [
+						[1, 50, 0],
+						[51, 100, 15],
+						[101, 200, 30],
+						[201, 999999, 45]
+					],
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true
+				}
+			},
+			{
+				"law_number": "Article 242-1",
+				"name":"Possession de pochon de weed",
+				"description": "La possession de pochon de weed, au-dessus de cinq pochons, est interdite.",
+				"quantity":true,
+				"penalty": {
+					"q": [
+						[1, 4, 0],
+						[5, 50, 40],
+						[51, 100, 75],
+						[101, 999999, 100]
+					],
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true,
+					"detainment": 20
+				}
+			},
+			{
+				"law_number": "Article 243-1",
+				"name":"Possession de pochon de méthamphétamine",
+				"description": "La possession de pochon de méthamphétamine est interdite.",
+				"quantity":true,
+				"penalty": {
+					"q": [
+						[1, 50, 55],
+						[51, 100, 85],
+						[101, 999999, 135]
+					],
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true,
+					"detainment": 20
+				}
+			},
+			{
+				"law_number": "Article 244-1",
+				"name":"Possession de pochon de cocaïne",
+				"description": "La possession de pochon de cocaïne est interdite.",
+				"quantity":true,
+				"penalty": {
+					"q": [
+						[1, 50, 65],
+						[51, 100, 95],
+						[101, 999999, 140]
+					],
+					"criminal_record": true,
+					"confiscation": true,
+					"fine_per_unit": true,
+					"detainment": 20
+				}
+			},
+			{
+				"law_number": "Article 245-1",
+				"name":"Vente de drogue",
+				"description": "La vente de drogue se caractérise par le fait de vendre quelconque drogue en échange d'une rémunération financière ou par quelconques services et / ou objets.",
+				"penalty": {
+					"fine": 7500,
+					"criminal_record": true,
+					"confiscation": true,
+					"community_service": 15
+				}
+			},
+			{
+				"law_number": "Article 246-1",
+				"name":"Fabrication de drogue",
+				"description": "La fabrication de drogue se caractérise par le fait de produire ou créer de la drogue.",
+				"penalty": {
+					"fine": 100000,
+					"criminal_record": true,
+					"confiscation": true,
+					"community_service": 125,
+					"dismantle_location": true
+				}
+			}
+		]
+	},
+	"argent_marque":{
+		"name": "Argent marqué",
+		"offense":false,
+		"laws":[
+			{
+				"law_number": "Article 247-1",
+				"name":"Possession d'argent",
+				"description": "La possession d'argent, au-delà de dix-mille dollars, est interdite. Également, l'argent en votre possession pourra être analysée grâce aux numéros de série.",
+				"quantity":true,
+				"penalty": {
+					"q": [
+						[10001, 15000, 35],
+						[15001, 50000, 45],
+						[50001, 999999, 55]
+					],
+					"fine_per_100_dollars": true,
+					"confiscation": ["money"],
+					"criminal_record": true,
+					"custody": 20
+				}
+			}
+		]
+	}
+}
