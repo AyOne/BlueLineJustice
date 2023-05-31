@@ -17,7 +17,7 @@ export default function Category({category}) {
 			</Grid>
 			{category.laws.map((law, index) => {console.log(law);return (
 				<Grid item xs={12} key={index}>
-					<Checker law={law} offence={category.offence} />
+					<Checker law={law} offense={category.offense} />
 				</Grid>
 			)})}
 		</Grid>
