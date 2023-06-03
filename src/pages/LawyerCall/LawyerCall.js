@@ -1,7 +1,7 @@
 import { Box, Typography, Grid, Divider, TextField, Select, MenuItem, Button, Dialog, DialogTitle, DialogContent, Paper } from '@mui/material';
 import offensesJSON from "../../assets/offenses.json";
 import Category from "./components/Category.js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function LawerCall(props) {
 
@@ -19,17 +19,19 @@ export default function LawerCall(props) {
 		"Roxwood Country",
 	]
 
-
-	
-	const [formValues, setFormValues] = useState({})
+	const lawyers = [
+		"Phoenix Wright",
+		"Mia Fey",
+		"Samuel Rosenberg",
+	]
 			
+	const currentTime = new Date().toLocaleTimeString("fr-FR").slice(0, -3)
 
-
-	const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString("fr-FR").slice(0, -3))
+	//const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString("fr-FR").slice(0, -3))
 	const [recapOpen, setRecapOpen] = useState(false)
 	//console.log(currentTime)
 
-	const formJSON = [
+	const formFields = [
 		{
 			enable:true,
 			name:"CallMatricule",
@@ -105,6 +107,25 @@ export default function LawerCall(props) {
 		},
 		{
 			enable:true,
+			name: "LawyerTime",
+			types:[
+				{
+					type:"text",
+					label:"Heure de la demande du contrevenant de l'appel avocat :",
+					required:true,
+					size:7,
+				},
+				{
+					type:"timeField",
+					label:"Time",
+					defaultValue:currentTime,
+					required:true,
+					size:5,
+				}
+			]
+		},
+		{
+			enable:true,
 			name: "ArrestTime",
 			types:[
 				{
@@ -162,6 +183,26 @@ export default function LawerCall(props) {
 		},
 		{
 			enable:true,
+			name: "DetentionPlace",
+			types:[
+				{
+					type:"text",
+					label:"Lieu de la mise en garde a vue : ",
+					required:true,
+					size:7,
+				},
+				{
+					type:"select",
+					label:"City",
+					values:city,
+					defaultValue:0,
+					required:true,
+					size:5,
+				}
+			]
+		},
+		{
+			enable:true,
 			name: "Lawyer",
 			types:[
 				{
@@ -173,7 +214,7 @@ export default function LawerCall(props) {
 				{
 					type:"select",
 					label:"Lawyer",
-					values:["Phoenix Wright", "Mia Fey", "Samuel Rosenberg"],
+					values:lawyers,
 					defaultValue:0,
 					required:true,
 					size:5,
@@ -181,6 +222,134 @@ export default function LawerCall(props) {
 			]
 		},
 	]
+
+
+	const [formValues, setFormValues] = useState([])
+	const [offenses, setOffenses] = useState({})
+
+
+
+
+
+
+	const updateOffense = (law_number, state = undefined) => {
+		const offensesTemp = offenses
+		if (state !== undefined) {
+			offensesTemp[law_number] = state
+		}else{
+			offensesTemp[law_number].enable = !offensesTemp[law_number].enable
+		}
+		setOffenses(offensesTemp)
+	}
+
+	const updateForm = (form_field, value) => {
+		const formValuesTemp = formValues
+		formValuesTemp[form_field] = value
+		setFormValues(formValuesTemp)
+	}
+
+
+
+
+	/*
+	const saveToLocal = () => {
+		const defaultValue = JSON.stringify({enable:false, quantity:0, accomplice:false})
+		Object.keys(offensesJSON).forEach((key) => {
+			const category = offensesJSON[key]
+			for (let i = 0; i < category.laws.length; i++) {
+				const law = category.laws[i];
+				if (offenses[law.name] === undefined) offenses[law.name] = defaultValue;
+				else localStorage.setItem(law.law_number, JSON.stringify(offenses[law.name]))
+			}
+		})
+	}
+
+	const loadFromLocal = () => {
+		const offensesTemp = {}
+		Object.keys(offensesJSON).forEach((key) => {
+			const category = offensesJSON[key]
+			for (let i = 0; i < category.laws.length; i++) {
+				const law = category.laws[i];
+				offensesTemp[law.name] = JSON.parse(localStorage.getItem(law.law_number)) || {enable:false, quantity:0}
+			}
+		})
+		setOffenses(offensesTemp)
+	}
+	
+
+	const printLocal = () => {
+		console.log("printLocal");
+		Object.keys(offensesJSON).forEach((key) => {
+			const category = offensesJSON[key]
+			for (let i = 0; i < category.laws.length; i++) {
+				const law = category.laws[i];
+				console.log(law.law_number, JSON.parse(localStorage.getItem(law.law_number)))
+			}
+		})
+	}
+
+	const printOffenses = () => {
+		console.log("printOffenses");
+		Object.keys(offensesJSON).forEach((key) => {
+			const category = offensesJSON[key]
+			for (let i = 0; i < category.laws.length; i++) {
+				const law = category.laws[i];
+				console.log(law.law_number, offenses[law.name])
+			}
+		})
+	}
+
+	*/
+		
+
+	const initDefaultFormValues = () => {
+		const formValuesTemp = []
+		formFields.forEach((form_field) => {
+			formValuesTemp[form_field.name] = ""
+		})
+		setFormValues(formValuesTemp)
+	}
+
+	const initDefaultOffensesValues = () => {
+		const offensesTemp = {}
+		Object.keys(offensesJSON).forEach((key) => {
+			const category = offensesJSON[key]
+			for (let i = 0; i < category.laws.length; i++) {
+				const law = category.laws[i];
+				offensesTemp[law.name] = {enable:false, quantity:0, accomplice:false}
+			}
+		})
+		setOffenses(offensesTemp)
+	}
+
+
+
+	useEffect(() => {
+		initDefaultFormValues();
+		initDefaultOffensesValues();
+
+		async function fetchData() {
+			// call for the database to get :
+			// - the list of all the laws
+			// - the list of all the lawyers
+			// - the list of all the cities
+			// - the list of all the matricule prefix
+			// - the list of all the form fields
+		}
+		
+		
+		
+		fetchData().then(() => {
+			// build the values of the form and laws
+			
+			// load the local storage into the form or create it if it doesn't exist
+			//loadFromLocal();
+
+			// save the form into the local storage
+			//saveToLocal();
+		})
+	}, [])
+
 
 
 
@@ -206,7 +375,14 @@ export default function LawerCall(props) {
 								<DialogTitle>Recapitulatif #1</DialogTitle>
 							</Divider>
 							<DialogContent>
-								<Typography variant="h6">Iamque lituis cladium concrepantibus internarum non celate ut antea turbidum saeviebat ingenium a veri consideratione detortum et nullo inpositorum vel conpositorum fidem sollemniter inquirente nec discernente a societate noxiorum insontes velut exturbatum e iudiciis fas omne discessit, et causarum legitima silente defensione carnifex rapinarum sequester et obductio capitum et bonorum ubique multatio versabatur per orientales provincias, quas recensere puto nunc oportunum absque Mesopotamia digesta, cum bella Parthica dicerentur, et Aegypto, quam necessario aliud reieci ad tempus.</Typography>
+								{
+									formValues.map((value, index) => {
+										console.log(value, index)
+										return (
+											<Typography variant="h6" key={index}>{formValues[index]}</Typography>
+										)
+									})
+								}
 							</DialogContent>
 						</Paper>
 					</Grid>
@@ -273,7 +449,7 @@ export default function LawerCall(props) {
 				</Grid>
 				
 				{
-					formJSON.map((form, index) => {
+					formFields.map((form, index) => {
 						return (
 							<Grid item xs={12} key={index}>
 								<Grid container spacing={2} alignItems="center">
@@ -285,7 +461,7 @@ export default function LawerCall(props) {
 														type.type === "text" ?
 															<Typography variant="h5">{type.label}</Typography>
 														: type.type === "select" ?
-															<Select defaultValue={type.values[type.defaultValue]} fullWidth={true}>
+															<Select defaultValue={type.values[type.defaultValue]} fullWidth={true} onChange={(e) => {updateForm(form.name, e.target.value)}}>
 																{
 																	type.values.map((value, index) => {
 																		return (
@@ -295,9 +471,9 @@ export default function LawerCall(props) {
 																}
 															</Select>
 														: type.type === "textField" ?
-															<TextField defaultValue={type.defaultValue} fullWidth/>
+															<TextField defaultValue={type.defaultValue} fullWidth onChange={(e) => {updateForm(form.name, e.target.value)}}/>
 														: type.type === "timeField" ?
-															<TextField defaultValue={type.defaultValue} fullWidth type="time" />
+															<TextField defaultValue={currentTime} fullWidth type="time" onChange={(e) => {updateForm(form.name, e.target.value)}}/>
 														: null
 													}
 												</Grid>
@@ -324,7 +500,7 @@ export default function LawerCall(props) {
 						Object.keys(offensesJSON).map((key) => {
 							return (
 								<Grid item xs={4} key={key}>
-									<Category category={offensesJSON[key]} />
+									<Category category={offensesJSON[key]} update={updateOffense} />
 								</Grid>
 							)
 						})
@@ -334,8 +510,12 @@ export default function LawerCall(props) {
 				<Grid item xs={12}>
 					<Divider />
 				</Grid>
-				<Grid item xs={12}>
-					<Button variant="text" color="primary" onClick={() => setRecapOpen(true)}>Envoyer</Button>
+				<Grid item xs={2}>
+					<Button variant="contained" color="primary" fullWidth>Reset</Button>
+				</Grid>
+				<Grid item xs={8}/>
+				<Grid item xs={2}>
+					<Button variant="contained" color="primary" fullWidth onClick={() => {console.log("click");setRecapOpen(true)}}>Recap</Button>
 				</Grid>
 
 			</Grid>
