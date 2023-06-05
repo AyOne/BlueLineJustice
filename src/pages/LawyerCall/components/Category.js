@@ -4,7 +4,7 @@ import Checker from "./Checker.js";
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-export default function Category({category, update}) {
+export default function Category({category, update, offenses}) {
 
 	//console.log(category)
 
@@ -18,7 +18,7 @@ export default function Category({category, update}) {
 				{
 					category.laws.map((law, index) => {/*console.log(law);*/return (
 						<Grid item xs={12} key={index}>
-							<Checker law={law} offense={category.offense} update={update} />
+							<Checker law={law} canBeAccomplice={category.canBeAccomplice} offenses={offenses} update={update} />
 						</Grid>
 					)})
 				}

@@ -1,7 +1,7 @@
 {
 	"code_route": {
 		"name": "Code de la route",
-		"offense":false,
+		"canBeAccomplice":false,
 		"laws":[
 			{
 				"law_number": "Article 114-1",
@@ -166,7 +166,7 @@
 	},
 	"delit_mineur": {
 		"name": "Délits Mineur",
-		"offense":true,
+		"canBeAccomplice":true,
 		"laws":[
 			{
 				"law_number": "Article 130-1",
@@ -422,7 +422,7 @@
 	},
 	"delit_moyen":{
 		"name": "Délits Moyen",
-		"offense":true,
+		"canBeAccomplice":true,
 		"laws":[
 			{
 				"law_number": "Article 153-1",
@@ -768,7 +768,7 @@
 	},
 	"delit_majeur":{
 		"name": "Délits Majeur",
-		"offense":true,
+		"canBeAccomplice":true,
 		"laws":[
 			{
 				"law_number": "Article 184-1",
@@ -1043,7 +1043,7 @@
 	},
 	"crime":{
 		"name": "Crime",
-		"offense":true,
+		"canBeAccomplice":true,
 		"laws":[
 			{
 				"law_number": "Article 203-1",
@@ -1286,7 +1286,7 @@
 	},
 	"armes":{
 		"name": "Armes",
-		"offense":false,
+		"canBeAccomplice":false,
 		"laws":[
 			{
 				"law_number": "Article 248-1",
@@ -1561,7 +1561,7 @@
 	},
 	"objets_illegaux":{
 		"name": "Objets illégaux",
-		"offense":false,
+		"canBeAccomplice":false,
 		"laws":[
 			{
 				"law_number": "Article 222-1",
@@ -1726,7 +1726,7 @@
 	},
 	"drogues":{
 		"name": "Drogues",
-		"offense":false,
+		"canBeAccomplice":false,
 		"laws":[
 			{
 				"law_number": "Article 235-1",
@@ -1920,7 +1920,7 @@
 	},
 	"argent_marque":{
 		"name": "Argent marqué",
-		"offense":false,
+		"canBeAccomplice":false,
 		"laws":[
 			{
 				"law_number": "Article 247-1",

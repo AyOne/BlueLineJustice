@@ -27,14 +27,11 @@ export default function LawerCall(props) {
 			
 	const currentTime = new Date().toLocaleTimeString("fr-FR").slice(0, -3)
 
-	//const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString("fr-FR").slice(0, -3))
 	const [recapOpen, setRecapOpen] = useState(false)
-	//console.log(currentTime)
 
-	const formFields = [
-		{
+	const formFields = {
+		callMatricule:{
 			enable:true,
-			name:"CallMatricule",
 			types:[
 				{
 					type:"text",
@@ -59,9 +56,8 @@ export default function LawerCall(props) {
 				}
 			]
 		},
-		{
+		arrestMatricule:{
 			enable:true,
-			name: "ArrestMatricule",
 			types:[
 				{
 					type:"text",
@@ -86,9 +82,8 @@ export default function LawerCall(props) {
 				}
 			]
 		},
-		{
+		offenderName:{
 			enable:true,
-			name: "offenderName",
 			types:[
 				{
 					type:"text",
@@ -105,9 +100,8 @@ export default function LawerCall(props) {
 				}
 			]
 		},
-		{
+		callTime:{
 			enable:true,
-			name: "LawyerTime",
 			types:[
 				{
 					type:"text",
@@ -124,9 +118,8 @@ export default function LawerCall(props) {
 				}
 			]
 		},
-		{
+		arrestTime:{
 			enable:true,
-			name: "ArrestTime",
 			types:[
 				{
 					type:"text",
@@ -143,9 +136,8 @@ export default function LawerCall(props) {
 				}
 			]
 		},
-		{
+		mirandaTime:{
 			enable:true,
-			name: "MirandaTime",
 			types:[
 				{
 					type:"text",
@@ -162,9 +154,8 @@ export default function LawerCall(props) {
 				}
 			]
 		},
-		{
+		detentionTime:{
 			enable:true,
-			name: "DetentionTime",
 			types:[
 				{
 					type:"text",
@@ -181,9 +172,8 @@ export default function LawerCall(props) {
 				}
 			]
 		},
-		{
+		detentionPlace:{
 			enable:true,
-			name: "DetentionPlace",
 			types:[
 				{
 					type:"text",
@@ -201,9 +191,8 @@ export default function LawerCall(props) {
 				}
 			]
 		},
-		{
+		lawyer:{
 			enable:true,
-			name: "Lawyer",
 			types:[
 				{
 					type:"text",
@@ -221,10 +210,10 @@ export default function LawerCall(props) {
 				}
 			]
 		},
-	]
+	}
 
 
-	const [formValues, setFormValues] = useState([])
+	const [formValues, setFormValues] = useState({})
 	const [offenses, setOffenses] = useState({})
 
 
@@ -243,84 +232,59 @@ export default function LawerCall(props) {
 	}
 
 	const updateForm = (form_field, value) => {
+
 		const formValuesTemp = formValues
 		formValuesTemp[form_field] = value
 		setFormValues(formValuesTemp)
 	}
-
-
-
-
-	/*
-	const saveToLocal = () => {
-		const defaultValue = JSON.stringify({enable:false, quantity:0, accomplice:false})
-		Object.keys(offensesJSON).forEach((key) => {
-			const category = offensesJSON[key]
-			for (let i = 0; i < category.laws.length; i++) {
-				const law = category.laws[i];
-				if (offenses[law.name] === undefined) offenses[law.name] = defaultValue;
-				else localStorage.setItem(law.law_number, JSON.stringify(offenses[law.name]))
-			}
-		})
-	}
-
-	const loadFromLocal = () => {
-		const offensesTemp = {}
-		Object.keys(offensesJSON).forEach((key) => {
-			const category = offensesJSON[key]
-			for (let i = 0; i < category.laws.length; i++) {
-				const law = category.laws[i];
-				offensesTemp[law.name] = JSON.parse(localStorage.getItem(law.law_number)) || {enable:false, quantity:0}
-			}
-		})
-		setOffenses(offensesTemp)
-	}
-	
-
-	const printLocal = () => {
-		console.log("printLocal");
-		Object.keys(offensesJSON).forEach((key) => {
-			const category = offensesJSON[key]
-			for (let i = 0; i < category.laws.length; i++) {
-				const law = category.laws[i];
-				console.log(law.law_number, JSON.parse(localStorage.getItem(law.law_number)))
-			}
-		})
-	}
-
-	const printOffenses = () => {
-		console.log("printOffenses");
-		Object.keys(offensesJSON).forEach((key) => {
-			const category = offensesJSON[key]
-			for (let i = 0; i < category.laws.length; i++) {
-				const law = category.laws[i];
-				console.log(law.law_number, offenses[law.name])
-			}
-		})
-	}
-
-	*/
 		
 
 	const initDefaultFormValues = () => {
-		const formValuesTemp = []
-		formFields.forEach((form_field) => {
-			formValuesTemp[form_field.name] = ""
+		const formValuesTemp = {}
+		Object.keys(formFields).forEach((form_key) => {
+			const form_field = formFields[form_key]
+			let defaultValue = form_field.types.map((type) => {
+				if (type.type === "text") return;
+				if (type.type === "select") return type.values[type.defaultValue]
+				else if (type.type === "textField") return type.defaultValue
+				else if (type.type === "timeField") return currentTime
+				else return ""
+			})
+			formValuesTemp[form_key] = defaultValue
 		})
 		setFormValues(formValuesTemp)
 	}
 
 	const initDefaultOffensesValues = () => {
+		//console.log("Initialisation de ses morts")
 		const offensesTemp = {}
 		Object.keys(offensesJSON).forEach((key) => {
 			const category = offensesJSON[key]
 			for (let i = 0; i < category.laws.length; i++) {
 				const law = category.laws[i];
-				offensesTemp[law.name] = {enable:false, quantity:0, accomplice:false}
+				offensesTemp[law.law_number] = {enable:false, quantity:0, accomplice:false}
 			}
 		})
 		setOffenses(offensesTemp)
 	}
+
+	const renderFormValues = (values) => {
+		//console.log("Initialisation de ses morts mais pour la forme")
+		console.log(values)
+		let formattedValues = ""
+		values.forEach((value, index) => {
+			if (index === 0) return;
+			formattedValues += value
+			if (index !== values.length - 1) formattedValues += " "
+		})
+		return formattedValues
+	}
+
+	const renderOffense = (law_number, ) => {
+		// I need a reference to the offense object but I can't get the law
+		// with only the law number :( I'll find a way later
+	}
+		
 
 
 
@@ -376,10 +340,19 @@ export default function LawerCall(props) {
 							</Divider>
 							<DialogContent>
 								{
-									formValues.map((value, index) => {
-										console.log(value, index)
+									Object.keys(formValues).map((key, index) => {
+										//console.log(key, formValues[key])
 										return (
-											<Typography variant="h6" key={index}>{formValues[index]}</Typography>
+											<Typography variant="h6" key={index}>{key} : {renderFormValues(formValues[key])}</Typography>
+										)
+									})
+								}
+								<Divider/>
+								{
+									Object.keys(offenses).map((key, index) => {
+										if (!offenses[key].enable) return;
+										return (
+											<Typography variant="h6" key={index}>{key} : {offenses[key].enable ? "true" : "false"} {offenses[key].quantity} {offenses[key].accomplice ? "true" : "false"}</Typography>
 										)
 									})
 								}
@@ -449,7 +422,8 @@ export default function LawerCall(props) {
 				</Grid>
 				
 				{
-					formFields.map((form, index) => {
+					Object.keys(formFields).map((form_key, index) => {
+						const form = formFields[form_key]
 						return (
 							<Grid item xs={12} key={index}>
 								<Grid container spacing={2} alignItems="center">
@@ -500,7 +474,7 @@ export default function LawerCall(props) {
 						Object.keys(offensesJSON).map((key) => {
 							return (
 								<Grid item xs={4} key={key}>
-									<Category category={offensesJSON[key]} update={updateOffense} />
+									<Category category={offensesJSON[key]} update={updateOffense} offenses={offenses} />
 								</Grid>
 							)
 						})
@@ -511,11 +485,11 @@ export default function LawerCall(props) {
 					<Divider />
 				</Grid>
 				<Grid item xs={2}>
-					<Button variant="contained" color="primary" fullWidth>Reset</Button>
+					<Button variant="contained" color="primary" fullWidth>Recherche</Button>
 				</Grid>
 				<Grid item xs={8}/>
 				<Grid item xs={2}>
-					<Button variant="contained" color="primary" fullWidth onClick={() => {console.log("click");setRecapOpen(true)}}>Recap</Button>
+					<Button variant="contained" color="primary" fullWidth onClick={() => {setRecapOpen(true)}}>Recap</Button>
 				</Grid>
 
 			</Grid>
