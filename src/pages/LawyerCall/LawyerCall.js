@@ -384,35 +384,31 @@ export default function LawerCall(props) {
 						</Paper>
 					</Grid>
 					<Grid item xs={6}>
-						<Paper sx={{height:"100%"}}>
+						<Paper sx={{height:"100%", display:"flex", flexDirection:"column"}}>
 							<DialogTitle>
 								<Tabs value={tabValue} onChange={(e, newvalue) => {setTabValue(newvalue)}} >
 									<Tab label="Appel avocat" />
 									<Tab label="Appel procureur" />
 								</Tabs>
 							</DialogTitle>
-							<DialogContent sx={{height:"100%"}}>
+							<DialogContent sx={{flex:1}}>
 								{
 									tabValue === 0 ?	// Appel avocat
-									<div>
+									<div style={{ display:"flex", flexDirection:"column", justifyContent:"space-between", height:"100%"}}>
 										<Typography variant="h6">Iamque lituis cladium concrepantibus internarum non celate ut antea turbidum saeviebat ingenium a veri consideratione</Typography>
 										<DialogActions>
 											<Button sx={{}} variant="contained" color="primary">Copier l'appel avocat</Button>
 										</DialogActions>
 									</div>
 									:					// Appel procureur
-									<Grid container spacing={2} direction={"column"}>
-										<Grid item xs={10}>
-											<Typography variant="h6">
-												Inquirente nec discernente a societate noxiorum insontes velut exturbatum e iudiciis fas omne discessit
-											</Typography>
-										</Grid>
-										<Grid item xs={2}>
-											<DialogActions>
-												<Button variant="contained" color="primary">Copier l'appel procureur</Button>
-											</DialogActions>
-										</Grid>
-									</Grid>
+									<div style={{ display:"flex", flexDirection:"column", justifyContent:"space-between", height:"100%"}}>
+										<Typography variant="h6">
+											Inquirente nec discernente a societate noxiorum insontes velut exturbatum e iudiciis fas omne discessit
+										</Typography>
+										<DialogActions>
+											<Button variant="contained" color="primary">Copier l'appel procureur</Button>
+										</DialogActions>
+									</div>
 								}
 							</DialogContent>
 						</Paper>
