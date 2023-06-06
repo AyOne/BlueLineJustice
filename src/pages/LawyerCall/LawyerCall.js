@@ -1,4 +1,4 @@
-import { Box, Typography, Grid, Divider, TextField, Select, MenuItem, Button, Dialog, DialogTitle, DialogContent, Paper } from '@mui/material';
+import { Box, Typography, Grid, Divider, TextField, Select, MenuItem, Button, Dialog, DialogTitle, DialogContent, Paper, Tab, Tabs, DialogActions } from '@mui/material';
 import offensesJSON from "../../assets/offenses.json";
 import Category from "./components/Category.js";
 import { useState, useEffect } from "react";
@@ -35,7 +35,7 @@ export default function LawerCall(props) {
 			types:[
 				{
 					type:"text",
-					label:"matricule de l'agent réalisant l'appel : ",
+					label:"matricule de l'agent réalisant l'appel",
 					required:true,
 					size:7
 				},
@@ -61,7 +61,7 @@ export default function LawerCall(props) {
 			types:[
 				{
 					type:"text",
-					label:"matricule de l'agent en charge de l'arrestation : ",
+					label:"matricule de l'agent en charge de l'arrestation",
 					required:true,
 					size:7
 				},
@@ -87,7 +87,7 @@ export default function LawerCall(props) {
 			types:[
 				{
 					type:"text",
-					label:"Nom et prénom du contrevenant : ",
+					label:"Nom et prénom du contrevenant",
 					required:true,
 					size:7,
 				},
@@ -105,7 +105,7 @@ export default function LawerCall(props) {
 			types:[
 				{
 					type:"text",
-					label:"Heure de la demande du contrevenant de l'appel avocat :",
+					label:"Heure de la demande du contrevenant de l'appel avocat",
 					required:true,
 					size:7,
 				},
@@ -123,7 +123,7 @@ export default function LawerCall(props) {
 			types:[
 				{
 					type:"text",
-					label:"Heure de l'arrestation : ",
+					label:"Heure de l'arrestation",
 					required:true,
 					size:7,
 				},
@@ -141,7 +141,7 @@ export default function LawerCall(props) {
 			types:[
 				{
 					type:"text",
-					label:"Heure de lecture des droits miranda : ",
+					label:"Heure de lecture des droits miranda",
 					require:true,
 					size:7
 				},
@@ -159,7 +159,7 @@ export default function LawerCall(props) {
 			types:[
 				{
 					type:"text",
-					label:"Heure de mise en garde a vue : ",
+					label:"Heure de mise en garde a vue",
 					required:true,
 					size:7,
 				},
@@ -177,7 +177,7 @@ export default function LawerCall(props) {
 			types:[
 				{
 					type:"text",
-					label:"Lieu de la mise en garde a vue : ",
+					label:"Lieu de la mise en garde a vue",
 					required:true,
 					size:7,
 				},
@@ -196,7 +196,7 @@ export default function LawerCall(props) {
 			types:[
 				{
 					type:"text",
-					label:"Avocat demander par le contrevenant : ",
+					label:"Avocat demander par le contrevenant",
 					required:true,
 					size:7,
 				},
@@ -217,7 +217,7 @@ export default function LawerCall(props) {
 	const [offenses, setOffenses] = useState({})
 
 
-
+	const [tabValue, setTabValue] = useState(0)
 
 
 
@@ -231,10 +231,10 @@ export default function LawerCall(props) {
 		setOffenses(offensesTemp)
 	}
 
-	const updateForm = (form_field, value) => {
-
+	const updateForm = (form_field, index, value) => {
+		console.log(form_field, value, formValues)
 		const formValuesTemp = formValues
-		formValuesTemp[form_field] = value
+		formValuesTemp[form_field][index] = value
 		setFormValues(formValuesTemp)
 	}
 		
@@ -245,7 +245,7 @@ export default function LawerCall(props) {
 			const form_field = formFields[form_key]
 			let defaultValue = form_field.types.map((type) => {
 				if (type.type === "text") return;
-				if (type.type === "select") return type.values[type.defaultValue]
+				if (type.type === "select") return type.defaultValue
 				else if (type.type === "textField") return type.defaultValue
 				else if (type.type === "timeField") return currentTime
 				else return ""
@@ -256,7 +256,6 @@ export default function LawerCall(props) {
 	}
 
 	const initDefaultOffensesValues = () => {
-		//console.log("Initialisation de ses morts")
 		const offensesTemp = {}
 		Object.keys(offensesJSON).forEach((key) => {
 			const category = offensesJSON[key]
@@ -268,21 +267,42 @@ export default function LawerCall(props) {
 		setOffenses(offensesTemp)
 	}
 
-	const renderFormValues = (values) => {
-		//console.log("Initialisation de ses morts mais pour la forme")
-		console.log(values)
+	const renderFormValues = (values, field) => {
+		if (!values || !field) return;
 		let formattedValues = ""
 		values.forEach((value, index) => {
 			if (index === 0) return;
-			formattedValues += value
+			if (field.types[index].type === "select") formattedValues += field.types[index].values[value]
+			else if (field.types[index].type === "timeField") formattedValues += value
+			else if (field.types[index].type === "textField") formattedValues += value
+			else formattedValues += value
 			if (index !== values.length - 1) formattedValues += " "
 		})
 		return formattedValues
 	}
 
-	const renderOffense = (law_number, ) => {
-		// I need a reference to the offense object but I can't get the law
-		// with only the law number :( I'll find a way later
+	const renderOffense = (law_number, accomplice, quantity) => {
+		// I have to get a reference to the offense in the offensesJSON.
+		// but beacause the offenseJSON is a nested object, I have to loop through it...
+		// don't do that at home kids, this is a very bad practice and bad for the performance :(
+		
+		console.log(law_number, accomplice, quantity)
+
+		const vowels = "aeiouAEIOU"; 
+		let offense = undefined
+		Object.keys(offensesJSON).forEach((key) => {
+			const category = offensesJSON[key]
+			for (let i = 0; i < category.laws.length; i++) {
+				const law = category.laws[i];
+				if (law.law_number === law_number) offense = law
+			}
+		})
+		if (!offense){ console.error("Offense not found when trying to render it. law_number : " + law_number); return}
+		console.log(offense)
+
+		const firstIsVowel = vowels.includes(offense.name[0])
+
+		return offense.law_number + " : " + (accomplice ? firstIsVowel ? "Complicité d'" : "Complicité de " : "") + offense.name + (quantity === 0 ? "" : (" (x" + quantity + ")."))
 	}
 		
 
@@ -331,28 +351,83 @@ export default function LawerCall(props) {
 
 
 			
-			<Dialog open={recapOpen} onClose={() => setRecapOpen(false)} PaperProps={{style:{maxWidth:"calc(70% - 64px)", backgroundColor:'#FF000000', boxShadow: 'none', backgroundImage:'none'}}}>
+			<Dialog open={recapOpen} onClose={() => setRecapOpen(false)}
+				PaperProps={{
+					style:{
+						maxWidth:"calc(70% - 64px)",
+						backgroundColor:'#FF000000',
+						boxShadow: 'none',
+						backgroundImage:'none'
+			}}}>
 				<Grid container spacing={5}>
 					<Grid item xs={6}>
-						<Paper>
+						<Paper sx={{height:"100%"}}>
 							<Divider role="presentation">
-								<DialogTitle>Recapitulatif #1</DialogTitle>
+								<DialogTitle>Informations</DialogTitle>
 							</Divider>
 							<DialogContent>
 								{
 									Object.keys(formValues).map((key, index) => {
-										//console.log(key, formValues[key])
 										return (
-											<Typography variant="h6" key={index}>{key} : {renderFormValues(formValues[key])}</Typography>
+											<div style={{display:"flex"}}>
+												<Typography noWrap variant="h6" key={index}>
+													{formFields[key].types[0].label} :
+												</Typography>
+												<Typography noWrap sx={{ fontWeight: 'bold' }} variant='h6'>
+													{renderFormValues(formValues[key], formFields[key])}
+												</Typography>
+											</div>
 										)
 									})
 								}
-								<Divider/>
+							</DialogContent>
+						</Paper>
+					</Grid>
+					<Grid item xs={6}>
+						<Paper sx={{height:"100%"}}>
+							<DialogTitle>
+								<Tabs value={tabValue} onChange={(e, newvalue) => {setTabValue(newvalue)}} >
+									<Tab label="Appel avocat" />
+									<Tab label="Appel procureur" />
+								</Tabs>
+							</DialogTitle>
+							<DialogContent sx={{height:"100%"}}>
+								{
+									tabValue === 0 ?	// Appel avocat
+									<div>
+										<Typography variant="h6">Iamque lituis cladium concrepantibus internarum non celate ut antea turbidum saeviebat ingenium a veri consideratione</Typography>
+										<DialogActions>
+											<Button sx={{}} variant="contained" color="primary">Copier l'appel avocat</Button>
+										</DialogActions>
+									</div>
+									:					// Appel procureur
+									<Grid container spacing={2} direction={"column"}>
+										<Grid item xs={10}>
+											<Typography variant="h6">
+												Inquirente nec discernente a societate noxiorum insontes velut exturbatum e iudiciis fas omne discessit
+											</Typography>
+										</Grid>
+										<Grid item xs={2}>
+											<DialogActions>
+												<Button variant="contained" color="primary">Copier l'appel procureur</Button>
+											</DialogActions>
+										</Grid>
+									</Grid>
+								}
+							</DialogContent>
+						</Paper>
+					</Grid>
+					<Grid item xs={6}>
+						<Paper sx={{height:"100%"}}>
+							<Divider role="presentation">
+								<DialogTitle>Infractions</DialogTitle>
+							</Divider>
+							<DialogContent>
 								{
 									Object.keys(offenses).map((key, index) => {
-										if (!offenses[key].enable) return;
+										if (!offenses[key].enable && !offenses[key].accomplice) return;
 										return (
-											<Typography variant="h6" key={index}>{key} : {offenses[key].enable ? "true" : "false"} {offenses[key].quantity} {offenses[key].accomplice ? "true" : "false"}</Typography>
+											<Typography variant="h6" key={index}>{renderOffense(key, offenses[key].accomplice, offenses[key].quantity)}</Typography>
 										)
 									})
 								}
@@ -360,29 +435,9 @@ export default function LawerCall(props) {
 						</Paper>
 					</Grid>
 					<Grid item xs={6}>
-						<Paper>
+						<Paper sx={{height:"100%"}}>
 							<Divider role="presentation">
-								<DialogTitle>Recapitulatif #1</DialogTitle>
-							</Divider>
-							<DialogContent>
-								<Typography variant="h6">Iamque lituis cladium concrepantibus internarum non celate ut antea turbidum saeviebat ingenium a veri consideratione detortum et nullo inpositorum vel conpositorum fidem sollemniter inquirente nec discernente a societate noxiorum insontes velut exturbatum e iudiciis fas omne discessit, et causarum legitima silente defensione carnifex rapinarum sequester et obductio capitum et bonorum ubique multatio versabatur per orientales provincias, quas recensere puto nunc oportunum absque Mesopotamia digesta, cum bella Parthica dicerentur, et Aegypto, quam necessario aliud reieci ad tempus.</Typography>
-							</DialogContent>
-						</Paper>
-					</Grid>
-					<Grid item xs={6}>
-						<Paper>
-							<Divider role="presentation">
-								<DialogTitle>Recapitulatif #1</DialogTitle>
-							</Divider>
-							<DialogContent>
-								<Typography variant="h6">Iamque lituis cladium concrepantibus internarum non celate ut antea turbidum saeviebat ingenium a veri consideratione detortum et nullo inpositorum vel conpositorum fidem sollemniter inquirente nec discernente a societate noxiorum insontes velut exturbatum e iudiciis fas omne discessit, et causarum legitima silente defensione carnifex rapinarum sequester et obductio capitum et bonorum ubique multatio versabatur per orientales provincias, quas recensere puto nunc oportunum absque Mesopotamia digesta, cum bella Parthica dicerentur, et Aegypto, quam necessario aliud reieci ad tempus.</Typography>
-							</DialogContent>
-						</Paper>
-					</Grid>
-					<Grid item xs={6}>
-						<Paper>
-							<Divider role="presentation">
-								<DialogTitle>Recapitulatif #1</DialogTitle>
+								<DialogTitle>Informations complémentaire</DialogTitle>
 							</Divider>
 							<DialogContent>
 								<Typography variant="h6">Iamque lituis cladium concrepantibus internarum non celate ut antea turbidum saeviebat ingenium a veri consideratione detortum et nullo inpositorum vel conpositorum fidem sollemniter inquirente nec discernente a societate noxiorum insontes velut exturbatum e iudiciis fas omne discessit, et causarum legitima silente defensione carnifex rapinarum sequester et obductio capitum et bonorum ubique multatio versabatur per orientales provincias, quas recensere puto nunc oportunum absque Mesopotamia digesta, cum bella Parthica dicerentur, et Aegypto, quam necessario aliud reieci ad tempus.</Typography>
@@ -422,32 +477,32 @@ export default function LawerCall(props) {
 				</Grid>
 				
 				{
-					Object.keys(formFields).map((form_key, index) => {
+					Object.keys(formFields).map((form_key, form_index) => {
 						const form = formFields[form_key]
 						return (
-							<Grid item xs={12} key={index}>
+							<Grid item xs={12} key={form_index}>
 								<Grid container spacing={2} alignItems="center">
 									{
-										form.types.map((type, index) => {
+										form.types.map((type, type_index) => {
 											return (
-												<Grid item xs={type.size} key={index}>
+												<Grid item xs={type.size} key={type_index}>
 													{
 														type.type === "text" ?
-															<Typography variant="h5">{type.label}</Typography>
+															<Typography variant="h5">{type.label} : </Typography>
 														: type.type === "select" ?
-															<Select defaultValue={type.values[type.defaultValue]} fullWidth={true} onChange={(e) => {updateForm(form.name, e.target.value)}}>
+															<Select defaultValue={type.defaultValue} fullWidth={true} onChange={(e) => {updateForm(form_key, type_index, e.target.value)}}>
 																{
-																	type.values.map((value, index) => {
+																	type.values.map((value, value_index) => {
 																		return (
-																			<MenuItem value={value} key={index}>{value}</MenuItem>
+																			<MenuItem value={value_index} key={value_index}>{value}</MenuItem>
 																		)
 																	})
 																}
 															</Select>
 														: type.type === "textField" ?
-															<TextField defaultValue={type.defaultValue} fullWidth onChange={(e) => {updateForm(form.name, e.target.value)}}/>
+															<TextField defaultValue={type.defaultValue} fullWidth onChange={(e) => {updateForm(form_key, type_index, e.target.value)}}/>
 														: type.type === "timeField" ?
-															<TextField defaultValue={currentTime} fullWidth type="time" onChange={(e) => {updateForm(form.name, e.target.value)}}/>
+															<TextField defaultValue={currentTime} fullWidth type="time" onChange={(e) => {updateForm(form_key, type_index, e.target.value)}}/>
 														: null
 													}
 												</Grid>
@@ -484,11 +539,8 @@ export default function LawerCall(props) {
 				<Grid item xs={12}>
 					<Divider />
 				</Grid>
-				<Grid item xs={2}>
-					<Button variant="contained" color="primary" fullWidth>Recherche</Button>
-				</Grid>
-				<Grid item xs={8}/>
-				<Grid item xs={2}>
+				<Grid item xs={9}/>
+				<Grid item xs={3}>
 					<Button variant="contained" color="primary" fullWidth onClick={() => {setRecapOpen(true)}}>Recap</Button>
 				</Grid>
 
